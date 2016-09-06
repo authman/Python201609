@@ -18,7 +18,7 @@ def letter(grade):
 
 
 for i in range(1,11):
-    grade = input()
+    grade = int(raw_input())
     print "Score:" + str(grade) + "; Your grade is " + letter(grade)
 
 print "End of the program. Dueces!"
