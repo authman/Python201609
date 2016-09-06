@@ -3,8 +3,18 @@
     <head>
         <meta charset="utf-8">
         <title>dojo!</title>
+        <link rel="stylesheet" href="{{url_for('static',filename = 'style.css')}}">
     </head>
     <body>
         <h1>Dojo</h1>
+        <div class="navbar">
+            <a href="/">home</a>
+            <a href="/ninjas">ninjas</a>
+            <a href="/dojos/new">dojos</a>
+        </div>
+        <form class="" action="#" method="post">
+            <input type="text" name="name" value="">
+            <input type="button" name="name" value="submit!">
+        </form>
     </body>
 </html>
