@@ -1,5 +1,5 @@
 from random import randint
-for i in range(100):
+for i in range(10):
 
 	grade = randint(60,100)
 
