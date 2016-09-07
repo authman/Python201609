@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="wrapper">
-            <h4>Your Gold :  ...</h4>
+            <h4>Your Gold :  {{gold}}</h4>
                 <form class="place" action="/processgold" method="post">
                     <h4>Farm</h4>
                     <h6>(earns 10-20 gold)</h6>
@@ -32,9 +32,11 @@
                     <input type="hidden" name="place" value="casino">
                     <input type="submit" name="name" value="submit">
                 </form>
-                <h6>activities</h6>
+                <h4>activities</h4>
                 <div class="activities">
-
+                    {% for item in log %}
+                    {{ item|safe }}
+                    {%endfor%}
                 </div>
 
 
