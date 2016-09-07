@@ -1,0 +1,10 @@
+.place{
+    display: inline-block;
+    width:200px;
+    height:250px;
+    padding:10px;
+}
+.place *{
+    margin-left: auto;
+    margin-right: auto;
+}

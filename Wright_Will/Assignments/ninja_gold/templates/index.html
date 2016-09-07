@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Ninja Gold</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" >
+    </head>
+    <body>
+        <div class="wrapper">
+            <h4>Your Gold :  ...</h4>
+                <form class="place" action="/processgold" method="post">
+                    <h4>Farm</h4>
+                    <h6>(earns 10-20 gold)</h6>
+                    <input type="hidden" name="place" value="farm">
+                    <input type="submit" name="name" value="submit">
+                </form>
+                <form class="place" action="/processgold" method="post">
+                    <h4>Cave</h4>
+                    <h6>(earns 5-10 gold)</h6>
+                    <input type="hidden" name="place" value="cave">
+                    <input type="submit" name="name" value="submit">
+                </form>
+                <form class="place" action="/processgold" method="post">
+                    <h4>House</h4>
+                    <h6>(earns 2-5 gold)</h6>
+                    <input type="hidden" name="place" value="house">
+                    <input type="submit" name="name" value="submit">
+                </form>
+                <form class="place" action="/processgold" method="post">
+                    <h4>Casino</h4>
+                    <h6>(earns/takes 0-50 gold)</h6>
+                    <input type="hidden" name="place" value="casino">
+                    <input type="submit" name="name" value="submit">
+                </form>
+                <h6>activities</h6>
+                <div class="activities">
+
+                </div>
+
+
+        </div>
+
+    </body>
+</html>
