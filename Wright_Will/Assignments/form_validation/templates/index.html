@@ -11,20 +11,20 @@
         <div id="wrapper">
             <form class="main" action="/results" method="post">
                 <h4>Your Name:</h4>
-                <input type="text" name="name" value="">
+                <input type="text" name="name" value="{{name}}">
                 <h4>Location:</h4>
-                <select class="" name="location">
-                    <option value="San Fransico">San Fransico</option>
-                    <option value="Dallas">Dallas</option>
+                <select class="" name="location" >
+                    <option value="San Fransisco" {%if location == "San Fransisco"%} selected {%endif%}>San Fransico</option>
+                    <option value="Dallas" {%if location == "Dallas"%} selected {%endif%}>Dallas</option>
                 </select>
                 <h4>Favorite language</h4>
 
-                <select class="" name="language">
-                    <option value="python">python</option>
-                    <option value="javascript">javascript</option>
+                <select class="" name="language" >
+                    <option value="python" {%if language == "python"%} selected {%endif%}>python</option>
+                    <option value="javascript" {%if language == "javascript"%} selected {%endif%}>javascript</option>
                 </select>
-                <h4>Comment: (Optional)</h4>
-                <textarea id="txtArea" name = "comment" rows="10" cols="70" ></textarea>
+                <h4>Comment: </h4>
+                <textarea id="txtArea" name = "comment" rows="10" cols="70" value="{{comment}}"></textarea>
                 <input type="submit" name="submit" value="Submit">
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
