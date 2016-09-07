@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title></title>
+	<meta charset='UTF-8'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+	<h1>Sign a bloodoath and enter a contract with your own shinobi animal partner.</h1>
+	<form action=''>
+
+		<h2>Pick your partner's class</h2>
+
+		<label for='shinobiAnimal'>
+			<input id='toad' class='shinobiAnimal' type='radio' name='shinobiAnimal' value='toad'>Toad
+			<input id='snake' class='shinobiAnimal' type='radio' name='shinobiAnimal' value='snake'>Snake
+			<input id='slug' class='shinobiAnimal' type='radio' name='shinobiAnimal' value='slug'>Slug
+			<input id='falcon' class='shinobiAnimal' type='radio' name='shinobiAnimal' value='falcon'>Falcon
+			<input id='tiger' class='shinobiAnimal' type='radio' name='shinobiAnimal' value='tiger'>Tiger
+		</label>
+
+		<h2>Enter your name</h2>
+
+		<label for='firstName'>First Name
+			<input id='firstName' type='text' name='firstName' placeholder='First Name'>
+		</label>
+		<label for='lastName'>Last Name
+			<input id='lastName' type='text' name='lastName' placeholder='Last Name'>
+		</label>
+
+		<label for='submit'>
+		<input id='submit' name='submit' type='submit'>
+		</label>
+
+	</form>
+</body>
+</html>
