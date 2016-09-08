@@ -1,0 +1,16 @@
+1049, "Unknown database 'mydb1'"    
+	-make sure database is named correctly 
+1146, "Table 'mydb.user1' doesn't exist" 
+	-make sure table is named correctly
+1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELET * FROM user' at line 1"
+	-make sute your sql code doesn't have any errors
+1045, "Access denied for user 'root3'@'localhost' (using password: YES)"
+	-password or username wrong
+2003, "Can't connect to MySQL server on '127.0.0.1' (10061)"
+	-check port number
+
+
+
+
+
+
