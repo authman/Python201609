@@ -1,41 +1,32 @@
 
-
-create animal class
-    name ---
-    health 100
-    walk() --health -=1
-    run() -- health -= 5
-    displayHealth()
-
-instance of animal  --animal
-    walk 3 times
-    run 2 times
-    displayHealth
-
-create dog class
-    super ??
-    health = 150
-    pet() -- health += 5
-instance of dog
-    walk() 3 times
-    run()  2 times
-    pet()
-    displayHealth()
-create dragon class
-    health 170
-    fly() health -= 10
-    dispayHealth works a little differntly??
-instance of dragon
-    walk() 3 times
-    run()  2 times
-    fly()  2 times
-    displayHealth()
-
-instance of animal
-    call fly() --shouldn't work
-    call pet() -- shouldn't work
-
-
-
-
-class animal(object):
+class Animal(object):
+    def __init__(self,name):
+        self.name = name
+        self.health = 100
+    def walk(self):
+        self.health -= 1
+        return self
+    def run(self):
+        self.health -= 5
+        return self
+    def displayHealth(self):
+        print self.health
+        return self
+class Dog(Animal):
+    def __init__(self,name):
+        super(Dog,self).__init__(name)
+        self.health = 150
+    def pet(self):
+        self.health += 5
+        return self
+class Dragon(Animal):
+    def __init__(self, name):
+        super(Dragon, self).__init__(name)
+        self.health = 170
+    def fly(self):
+        self.health -= 10
+        return self
+    def displayHealth(self):
+        print "This is a dragon!!"
+        super(Dragon, self).displayHealth()
+        return self
