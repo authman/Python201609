@@ -16,10 +16,10 @@ def index():
 @app.route('/addTwo')
 def addTwo():
 
-    session['counter'] += 2
+    session['counter'] += 1
     
-    return session['counter']
-    #have not been able to successfully add 2 :(
+    return redirect('/')
+
 
 
 
