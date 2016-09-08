@@ -1,0 +1,13 @@
+
+doubly_linked_lists class
+    add new node to end (push)
+    delete node
+    insert node before
+    insert node after
+    print all values
+
+
+node class
+    value
+    next
+    prev
