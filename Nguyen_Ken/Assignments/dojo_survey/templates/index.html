@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head lang='en'>
+	<meta charset='UTF-8'>
+	<title>Dojo Survey</title>
+	<meta name='description' content='Dojo Survey'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		<form action='/result' method='POST'>
+			<label for='name'>
+				Your Name: <input id='name' type='text' name='name'>
+			</label>
+			<label for='location'>
+				Dojo Location: 
+				<select id='location' name='location'>
+					<option value='Dallas'>Dallas</option>
+					<option value='Silicon_Valley'>Silicon Valley</option>
+					<option value='Seattle'>Seattle</option>
+					<option value='Los_Angeles'>Los Angeles</option>
+					<option value='Washington_DC'>Washington, D.C. </option>
+					<option value='Chicago'>Chicago</option>
+				</select>
+			</label>
+			<label for='language'>
+				Favorite Language:
+				<select id='language' name='language'>
+					<option value='javascript'>JavaScript</option>
+					<option value='python'>Python</option>
+					<option value='ruby'>Ruby</option>
+					<option value='Csharp'>C#</option>
+					<option value='Cplusplus'>C++</option>
+					<option value='java'>Java</option>
+				</select>
+			</label>
+			<label for='comment'>
+				Comments:
+				<textarea id='comment' name='comment'>
+				</textarea>
+			</label>
+			<label for='submit'>
+				<input type='submit' id='submit' name='submit' value='OK!'>
+			</label>
+		</form>
+	</div><!-- wrapper -->
+</body>
+</html>
