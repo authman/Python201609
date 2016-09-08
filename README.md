@@ -16,6 +16,7 @@ Probably the easiest workflow for you is to:
 * [Video 3](#Soon) - In class
 * [Video 4](#Soon) - I'll link them
 
+
 ## Getting Started
 
 On your computer, you should see your cloned version of the repo. Open it up and create a new folder called 'Lastname_FirstName', of course replacing it with your actual name. I'll show you all how to do this in class. Create two additional folders inside of it, 'Algorithms', and 'Assignments'.
@@ -42,7 +43,7 @@ I will accept and comment on your code changes daily.
 
 As mentioned, **Every.Single.Damn.Day** I want you to commit your class assignments so I can keep track your _daily_ progress. Also after doing the morning algorithms during the week, type up your assignment into the example JS HTML page I've provided and submit that too. You need to be programming _every day_ to become a developer.
 
-At the Dojo, we only cover git for a portion of a day during Web Fundamentals (which most of you slept through =). When you graduate, you need to know how to use it comfortably and proficiently, otherwise you'll be the laughing stock of the town. You will be a version-control master by the end of this course because we'll use this repository to submit and review assignments. You can track the schedule and solutions in the [Assignment Calendar](https://github.com/authman/Python201608/blob/master/ApatiraUthman/schedule.md) as soon as I get it up. Likewise, the algorithm challenges you'll be expected to complete can be found in the Algorithms Calendar.
+At the Dojo, we only cover git for a portion of a day during Web Fundamentals (which most of you slept through =). When you graduate, you need to know how to use it comfortably and proficiently, otherwise you'll be the laughing stock of the town. You will be a version-control master by the end of this course because we'll use this repository to submit and review assignments. You can track the schedule and solutions in the [Assignment Calendar](https://github.com/authman/Python201609/blob/master/Apatira_Authman/New%20Schedule.pdf) as soon as I get it up. Likewise, the algorithm challenges you'll be expected to complete can be found in the Algorithms Calendar.
 
 The second reason we're starting this is because that I like GitHub's social aspect, which will allow me to add comments into your code, have you correct your code, keep source control so you can see the evolution of your own progress, and again--get very familiar with pull requests, pushing, and merge conflict errors.
 
