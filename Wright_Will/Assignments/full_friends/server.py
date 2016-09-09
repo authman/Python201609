@@ -1,9 +1,10 @@
 from flask import Flask, redirect, render_template,session
-app = flask(__name__)
+app = Flask(__name__)
 app.secret_key = "fred"
 
 @app.route('/')
 def index():
+
     return render_template('index.html')
 
 @app.route('/friends')
@@ -19,4 +20,4 @@ def update(id):
 def destroy(id):
     return redirect()
 
-app.run(debug==True)
+app.run(debug=True)

@@ -3,7 +3,7 @@
     <head lang = 'en'>
         <meta charset="utf-8">
         <title>Full Friends</title>
-        <link rel="stylesheet" href="{{url_for('static',filname='styles.css')}}" >
+        <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" >
     </head>
     <body>
         <table>
@@ -27,12 +27,8 @@
                         </form>
                     </td>
                 </tr>
-                {%end for%}
+                {%endfor%}
             </tbody>
         </table>
-        {%for friend in friends%}
-            {{friend["name"]}}
-        {%end for%}
-        all the friends
     </body>
 </html>
