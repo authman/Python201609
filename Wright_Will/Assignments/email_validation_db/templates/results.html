@@ -10,7 +10,32 @@
             <h4>results</h4>
         </div>
         <div class="content_box">
-            table??
+            <table>
+                <thead>
+                    <tr>
+                        <td>name</td>
+                        <td>email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for user in data%}
+                    <tr>
+                        <td>{{user["name"]}}</td>
+                        <td>{{user['email']}}</td>
+                        <td>
+                            <form class="delete" action="/deleteUser" method="post">
+                                <input type="hidden" name="userid" value={{user["id"]}}>
+                                <input type="submit" name="name" value="delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <form class="" action="/" method="GET">
+                <input type="submit" name="name" value="Add New User">
+            </form>
+
         </div>
     </body>
 </html>

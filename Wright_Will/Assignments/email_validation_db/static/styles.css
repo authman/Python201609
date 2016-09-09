@@ -1,5 +1,6 @@
 .header{}
 .content_box{}
-*{
-    color:red;
+thead{
+    font-weight: bold;
+
 }
