@@ -24,8 +24,8 @@ def results():
 def addUser():
     session["name"] = request.form["name"]
     session["email"] = request.form["email"]
-    #if not re.match(session["email"],r"[a-Z0-9_]@.*\..*"):
-    if len(session["name"]) < 1 or len(session["email"]) < 1:
+    if not re.match(r"\b[a-z]+[a-z0-9_]*@.+\..+\b",session["email"],):
+        #if len(session["name"]) < 1 or len(session["email"]) < 1:
         return redirect("/")
     query = "INSERT INTO email_validation.user (email, name) VALUES (:email,:name)";
     data = {
