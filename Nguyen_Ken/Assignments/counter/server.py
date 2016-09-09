@@ -20,6 +20,12 @@ def addTwo():
     
     return redirect('/')
 
+@app.route('/reset')
+def reset():
+
+    session['counter'] = -1
+    
+    return redirect('/')
 
 
 

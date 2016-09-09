@@ -9,7 +9,7 @@
 	text-align: center;
 }
 
-h1, p, a {
+h1, p {
 	margin-bottom: 15px;
 }
 
@@ -21,4 +21,9 @@ a {
 	text-decoration: none;
 	padding: 5px;
 	box-shadow: 1px 1px 1px;
+	margin-bottom: 10px;
+	display: block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 }
