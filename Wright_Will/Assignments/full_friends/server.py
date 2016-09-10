@@ -1,7 +1,6 @@
-from flask import Flask, redirect, render_template,session,request
+from flask import Flask, redirect, render_template,request
 from mysqlconnection import MySQLConnector
 app = Flask(__name__)
-app.secret_key = "fred"
 mysql = MySQLConnector(app, 'friends')
 
 @app.route('/')
@@ -28,12 +27,12 @@ def edit(_id):
     print data[0]
     return render_template("friend.html",data=data[0],_id=_id)
 
-@app.route('/friends/<myid>',methods=["POST","GET"])
-def update(myid):
-    query ="UPDATE friends.users SET first_name=:fname, last_name=:lname, updated_at=NOW() WHERE id=:myid;"
+@app.route('/friends/<_id>',methods=["POST","GET"])
+def update(_id):
+    query ="UPDATE friends.users SET first_name=:fname, last_name=:lname, updated_at=NOW() WHERE id=:_id;"
     fname = request.form["first_name"]
     lname = request.form["last_name"]
-    data={"fname":fname,"lname":lname,"myid":myid}
+    data={"fname":fname,"lname":lname,"_id":_id}
     mysql.query_db(query, data)
     return redirect("/")
 
