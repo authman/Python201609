@@ -2,7 +2,7 @@ from flask import Flask, session, redirect, render_template, flash
 from mysqlconnection import MySQLConnector
 import re
 app = Flask(__name__)
-mysql = MySQLConnector(app,db)
+# mysql = MySQLConnector(app,db)
 
 @app.route('/')
 def index():
