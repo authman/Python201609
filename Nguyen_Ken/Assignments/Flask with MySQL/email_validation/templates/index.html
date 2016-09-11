@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>Email Validation Assignment</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Ninja Gold'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		{% with messages = get_flashed_messages(with_categories=true)%}
+			{% if messages %}
+				{% for condition, message in messages %}
+				<p class={{condition}}>{{message}}</p>
+
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+		<form action='/process' method='POST'>
+			<label for='email'>
+				Email Address: <input type='text' name='email' id='email'>
+			</label>
+			<input type='submit' value='Submit'>
+		</form>
+	</div><!-- wrapper -->
+
+</body>
+</html>
