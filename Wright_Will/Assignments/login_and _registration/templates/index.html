@@ -8,40 +8,47 @@
     </head>
     <body>
         <div id="wrapper">
-        {%if not user_id in session%}
-        <h2 class="heading">Login</h2>
+
+        {%if not '_id' in session %}
+        <h2 class="heading">Register</h2>
         <form class="log_reg" action="/process" method="post">
-            <input type="hidden" name="type" value="register">
+            <input type="hidden" name="formtype" value="register">
             <h5 class="lcol">first name:</h5>
-            <input type="text" name="fname" placeholder="first name" value="">
+            <input type="text" name="fname" placeholder="first name" value="{{session['fname']}}">
             <h5 class="lcol">last name:</h5>
-            <input type="text" name="lname" placeholder="last name" value="">
+            <input type="text" name="lname" placeholder="last name" value="{{session['lname']}}">
             <h5 class="lcol">email:</h5>
-            <input type="text" name="email" placeholder="email" value="">
+            <input type="text" name="email" placeholder="email" value="{{session['email']}}">
             <h5 class="lcol">password:</h5>
-            <input type="text" name="password" placeholder="password" value="">
+            <input type="text" name="password" placeholder="password" value=""autocomplete="off">
             <h5 class="lcol">confirm password:</h5>
-            <input type="text" name="confirm_pass" placeholder="password" value="">
+            <input type="text" name="confirm_pass" placeholder="password" value=""autocomplete="off">
             <input type="submit" name="name" value="Register">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <h5 class="error">{{message}}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
         </form>
-        {%else%}
+        <form class="" action="/log_out" method="post">
+            <input type="button" name="name" value="log in?">
+        </form>
+        {% else %}
         <h2 class="heading">Log in</h2>
         <form class="log_reg" action="/process" method="post">
-            <input type="hidden" name="type" value="login">
+            <input type="hidden" name="formtype" value="login">
             <h5 class="lcol">email:</h5>
             <input type="text" name="email" placeholder="email">
             <h5 class="lcol">password </h5>
-            <input type="text" name="pasword" placeholder="password">
+            <input type="text" name="password" placeholder="password">
             <input type="submit" name="name" value="Log in">
         </form>
-        {%endif%}
+        <form class="" action="/log_out" method="post">
+            <input type="button" name="name" value="New User??">
+        </form>
+        {% endif %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <h5 class="error">{{message}}</h5>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
     </div>
     </body>
 </html>
