@@ -51,7 +51,7 @@ def login():
         return redirect('/')
 
     #get user data
-    query = "SELECT user.id, user.password FROM user WHERE email = :email"
+    query = "SELECT user.id, user.password, user.first_name FROM user WHERE email = :email"
     qdata = {'email':email}
     user = mysql.query_db(query,qdata)
 
@@ -65,7 +65,7 @@ def login():
     if not bcrypt.check_password_hash(user['password'], password):
         flash("wrong password")
         return redirect('/')
-
+    session['fname'] = user['first_name']
     session['_id'] = user['id']
     return redirect('/wall')
 
@@ -103,7 +103,7 @@ def register():
     insert_query = "INSERT INTO thewall.user (first_name, last_name, email, password) VALUES (:fname, :lname, :email, :password);"
     insert_data = {'fname':fname, 'lname':lname, 'email':email, 'password':pw_hash}
     session['_id'] = mysql.query_db(insert_query,insert_data)
-    print session['_id']
+    session['fname'] = fname
     return redirect('/wall')
 
 @app.route('/wall')
@@ -111,16 +111,35 @@ def wall():
     if not '_id' in session:
         return redirect('/')
 
-    return render_template('wall.html')
+    msg_query = "SELECT user.first_name, user.last_name, message.id, message.message,date(message.created_at) AS _date  FROM thewall.message LEFT JOIN thewall.user ON message.user_id = user.id   ORDER BY message.created_at"
+    messages = mysql.query_db(msg_query)
+    comment_query = "SELECT *, date(comment.created_at) AS _date FROM thewall.comment LEFT JOIN thewall.user ON comment.user_id = user.id   ORDER BY comment.created_at"
+    comments = mysql.query_db(comment_query)
+    return render_template('wall.html',messages=messages,comments=comments)
 
 @app.route('/logout', methods=['POST'])
 def logout():
-    # if '_id' in session:
-    #     session.pop
     for key in session.keys():
         session.pop(key)
     return redirect('/')
+@app.route('/add_message', methods=['POST'])
+def add_msg():
+    msg = request.form['add_message']
+    if msg != "":
+        insert_query = "INSERT INTO thewall.message (user_id, message) VALUES (:_id, :message);"
+        qdata = {'_id':session['_id'],'message':msg}
+        mysql.query_db(insert_query,qdata)
+    return redirect('/wall')
 
+@app.route('/add_comment', methods=['POST'])
+def add_comment():
+    comment = request.form['add_comment']
+    if comment != "":
+        msg_id = request.form['add_to_msg_id']
+        insert_query = "INSERT INTO thewall.comment (user_id, message_id, comment) VALUES (:_id, :message_id, :comment);"
+        qdata = {'_id':session['_id'],'message_id':msg_id,'comment':comment}
+        mysql.query_db(insert_query,qdata)
+    return redirect('/wall')
 app.run(debug=True)
 
 

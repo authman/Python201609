@@ -9,10 +9,40 @@
     <body>
         <div class="Wall_Wrapper">
             <div class="header">
-                <h2>Welcome to The Wall</h2>
+                <h2>The Wall</h2>
                 <form class="logout" action="/logout" method="post">
+                    <h3>welcome {{session['fname']}}</h3>
                     <input type="submit" name="name" value="Logout">
                 </form>
+            </div>
+            <div class="wall">
+                <form class="" action="/add_message" method="post">
+                    <textarea name="add_message" rows="8" cols="40"></textarea>
+                    <input type="submit" name="submit" value="Post a Message">
+                </form>
+
+                {% for msg in messages %}
+                    <div class="message">
+                        <h4>{{msg['first_name']}}-{{msg['_date']}}</h4>
+                        <p>{{msg['message']}}</p>
+                    </div>
+                    {% for comment in comments %}
+                        {% if comment['message_id'] == msg['id']%}
+                            <div class="comment">
+                                <h4>{{comment['first_name']}}-{{comment['_date']}}</h4>
+                                <p>{{comment['comment']}}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <form class="comment" action="/add_comment" method="post">
+                        <input type="hidden" name="add_to_msg_id" value="{{msg['id']}}">
+                        <textarea name="add_comment" rows="4" cols="40"></textarea>
+                        <input type="submit" name="submit" value="Post a comment">
+                    </form>
+
+                {% endfor %}
+
             </div>
         </div>
     </body>
