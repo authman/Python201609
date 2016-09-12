@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>The Wall</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" >
+    </head>
+    <body>
+        <div class="Wall_Wrapper">
+            <div class="header">
+                <h2>Welcome to The Wall</h2>
+                <form class="logout" action="/logout" method="post">
+                    <input type="submit" name="name" value="Logout">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+
+#wrapper .log_reg{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#wrapper input{
+    display: block;
+    margin:4px auto;
+}
+#wrapper h4{
+    text-align: center;
+    font-weight: bold;
+}
+.header{
+    padding: 15px 40px;
+    background-color: #0a66c0;
+}
+.header *{
+    display: inline-block;
+    font-weight: bold;
+    margin-top:10px
+}
+.header form{
+    float: right;
+    margin-top: 5px;
+}
+.flashes{
+    color:red;
+    margin-left:auto;
+    margin-right: auto;
+    padding-left: 47%;
+}
