@@ -11,8 +11,8 @@ Probably the easiest workflow for you is to:
 
 ## Videos
 
-* [Video 1](#Soon) - As we do
-* [Video 2](#Soon) - Demos together
+* [FlaskSessions](https://www.youtube.com/watch?v=Y49g2gEg0Dc) - ...
+* [Flask A-Z](https://www.youtube.com/watch?v=Lq1R72xMmhs) - ...
 * [Video 3](#Soon) - In class
 * [Video 4](#Soon) - I'll link them
 
