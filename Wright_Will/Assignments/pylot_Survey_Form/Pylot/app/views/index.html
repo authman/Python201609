@@ -4,9 +4,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   </head>
   <body>
-     <form class="centered" action="/Surveys/process" method="post">
+     <form class="centered" action="/surveys/process" method="post">
          <h4>Your Name:</h4>
-         <input type="text" name="user_name">
+         <input type="text" name="user_name" value="">
          <h4>Dojo Location:</h4>
          <select class="" name="location" >
              {% for each in locations %}
@@ -20,8 +20,8 @@
              {% endfor %}
          </select>
          <h4>Comment: (Optional)</h4>
-         <textarea name="name" rows="8" cols="40"></textarea>
-         <input type="submit" name="name">
+         <textarea name="comment" rows="8" cols="40"></textarea>
+         <input type="submit" name="submit">
      </form>
   </body>
 </html>

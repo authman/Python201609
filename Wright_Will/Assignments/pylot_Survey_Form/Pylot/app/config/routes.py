@@ -17,10 +17,12 @@ from system.core.router import routes
     The automatically generated routes respond to all of the http verbs (GET, POST, PUT, PATCH, DELETE)
 """
 routes['default_controller'] = 'Surveys'
+routes['POST']['/surveys/process'] ='Surveys#process'
+routes['GET']['/results'] ='Surveys#results'
 """
     You can add routes and specify their handlers as follows:
 
-    routes['VERB']['/URL/GOES/HERE'] = 'Controller#method'
+    routes['VERB']['/results'] = 'Survey#results'
 
     Note the '#' symbol to specify the controller method to use.
     Note the preceding slash in the url.

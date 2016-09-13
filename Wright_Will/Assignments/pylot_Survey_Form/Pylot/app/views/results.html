@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="centered green">
+          <p>
+              Thanks for submitting this form ! You have submitted this form {{count}} times now
+          </p>
+      </div>
+
+     <form class="centered" action="/" method="GET">
+         <h4>Your Name:</h4>
+         {{user_name}}
+         <h4>Dojo Location:</h4>
+        {{location}}
+         <h4>Favorite Language:</h4>
+        {{language}}
+         <h4>Comment: (Optional)</h4>
+         {{comment}}
+         <input type="submit" name="submit" value="Go Back">
+     </form>
+  </body>
+</html>
