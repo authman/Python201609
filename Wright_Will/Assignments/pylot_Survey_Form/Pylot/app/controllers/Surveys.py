@@ -8,6 +8,19 @@ class Surveys(Controller):
         self.db = self._app.db
 
     def index(self):
-        hello="hello"
+        locations = ["Seattle","San Diego","Salt Lake","Dallas","New York","Charleston"]
+        languages = ["python","Javascript","Java","SQL","C#","C++","PHP","Ruby","F#","Clojure","Haskell"]
+        return self.load_view('index.html',locations=locations,languages=languages)
+    def process(self):
+        if not "count" in session:
+            session["count"] = 0
+        session["count"] += 1
+        session["name"] = request.form["user_name"]
+        session["location"] = request.form["location"]
+        session["language"] = request.form["language"]
+        session["comment"] = request.form["comment"]
+        return redirect('/result')
+    def process(self):
+        hello="goodbye"
 
-        return self.load_view('index.html',hello=hello)
+        return self.load_view('results.html',name=session['name'],location=session['location'],language=session["language"],comment=session["comment"],count=session["count"])

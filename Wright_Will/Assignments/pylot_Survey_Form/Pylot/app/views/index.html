@@ -1,8 +1,27 @@
 <html>
   <head>
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   </head>
   <body>
-     <h1>{{hello}}</h1>
+     <form class="centered" action="/Surveys/process" method="post">
+         <h4>Your Name:</h4>
+         <input type="text" name="user_name">
+         <h4>Dojo Location:</h4>
+         <select class="" name="location" >
+             {% for each in locations %}
+             <option value="{{each}}">{{each}}</option>
+             {% endfor %}
+         </select>
+         <h4>Favorite Language:</h4>
+         <select class="" name="language">
+             {% for each in languages %}
+             <option value="{{each}}">{{each}}</option>
+             {% endfor %}
+         </select>
+         <h4>Comment: (Optional)</h4>
+         <textarea name="name" rows="8" cols="40"></textarea>
+         <input type="submit" name="name">
+     </form>
   </body>
 </html>
