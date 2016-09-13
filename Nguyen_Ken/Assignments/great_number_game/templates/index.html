@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>Great Number Game</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' type='text/css' href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		<h1>Welcome to the GREAT number game!</h1>
+		<h2>I am thinking of a number between 1 and 100</h2>
+		<h2>Take a guess!</h2>
+
+		
+		<p id="tooHigh" style="display: {{session['highDisplay']}}">
+			<span>{{session['tooHigh']}}</span>
+		</p>
+
+		<p id="tooLow" style="display: {{session['lowDisplay']}}">
+			<span>{{session['tooLow']}}</span>
+		</p>
+
+		<p id="correct" style="display: {{session['correctDisplay']}}">
+			<span>{{session['correct']}} was the number!</span>
+			<a href='/' >Play Again!</a>
+		</p>
+
+		<form action='/guess' method='POST' style="display: {{session['formHide']}}">
+			<label for='guess'>
+				<input type='text' id='guess' name='guess'>
+			</label>
+			<label for='submit'>
+				<input type='submit' name='submit'>
+			</label>
+		</form>
+	</div><!-- wrapper -->
+</body>
+</html>
+
+<!-- <p id='tooHigh' ></p>
+<p id='tooLow' ></p>
+<p id='correct' ></p> -->
