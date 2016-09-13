@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" >
+    </head>
+    <body>
+
+        <form  class="friend_form" action="/friends/{{_id}}" method="post">
+            <h3>Edit your Info</h3>
+            {%for each in data%}
+                <h4 class="half">{{each}}</h4>
+                <input class="half" type="text" name="{{each}}" value={{data[each]}}>
+            {%endfor%}
+            <input class="center" type="submit" name="name" value="submit">
+        </form>
+    </body>
+</html>
