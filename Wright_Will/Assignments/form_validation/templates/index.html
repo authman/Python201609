@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <title>main page</title>
+        <link rel="stylesheet" href="{{url_for('static',filename ='style.css')}}" >
+        <!-- <link rel="stylesheet" href="../static/style.css" > -->
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <form class="main" action="/results" method="post">
+                <h4>Your Name:</h4>
+                <input type="text" name="name" value="{{name}}">
+                <h4>Location:</h4>
+                <select class="" name="location" >
+                    <option value="San Fransisco" {%if location == "San Fransisco"%} selected {%endif%}>San Fransico</option>
+                    <option value="Dallas" {%if location == "Dallas"%} selected {%endif%}>Dallas</option>
+                </select>
+                <h4>Favorite language</h4>
+
+                <select class="" name="language" >
+                    <option value="python" {%if language == "python"%} selected {%endif%}>python</option>
+                    <option value="javascript" {%if language == "javascript"%} selected {%endif%}>javascript</option>
+                </select>
+                <h4>Comment: </h4>
+                <textarea id="txtArea" name = "comment" rows="10" cols="70" value="{{comment}}"></textarea>
+                <input type="submit" name="submit" value="Submit">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+
+            </form>
+        </div>
+
+    </body>
+</html>
