@@ -7,8 +7,8 @@
     Create a controller using this template
 """
 from system.core.controller import *
-from random import randint
-import string
+import random
+from string import ascii_lowercase
 class Rand_Num(Controller):
     def __init__(self, action):
         super(Rand_Num, self).__init__(action)
@@ -16,10 +16,13 @@ class Rand_Num(Controller):
         self.load_model('WelcomeModel')
         self.db = self._app.db
 
-
     def index(self):
         randword  = ""
-        print string.ascii_letters
-        # for x in range(14):
-        #     randword += randInt()
-        return self.load_view('index.html')
+        if not 'count' in session:
+            session['count'] = 0
+        session['count'] += 1
+        random_word  = ""
+        for x in range(14):
+            random_word += random.choice(ascii_lowercase)
+
+        return self.load_view('index.html',randword=random_word)
