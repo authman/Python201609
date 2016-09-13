@@ -1,0 +1,18 @@
+*{
+	margin: 0;
+	font-family: monospace;
+	color: #9b9999;
+	margin-bottom: 20px;
+}
+
+body {
+	padding-left: 50px;
+	padding-top: 50px;
+	font-size: 1.5em;
+}
+
+blockquote{
+	width: 400px;
+	line-height: 1.5em;
+}
+
