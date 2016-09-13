@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/myStyle.css') }}">
+	
+</head>
+<body>
+	<h1>Welcome to the Great Number Game</h1>
+	<h3>I am thinking of a number between 1 and 100</h3>
+	<h3>Take a Guess!</h3>
+	
+	{%if test==None%}
+		<form action='/process' method="POST">
+			<input type="text" name="number" value="">
+			<input type="submit" name="number" value="Submit">
+		</form>		
+	{%elif test=='high'%}
+		<div id='high'>
+			<h1> Too High!</h1>
+		</div>
+		<form action='/process' method="POST">
+			<input type="text" name="number" value="">
+			<input type="submit" name="number" value="Submit">
+		</form>		
+	{%elif test=='low'%}
+		<div id='low'>
+			<h1> Too Low!</h1>
+		></div>
+		<form action='/process' method="POST">
+			<input type="text" name="number" value="">
+			<input type="submit" name="number" value="Submit">
+		</form>		
+	{%elif test=='nailed'%}
+		<div id='nailed'>
+			<h1> Killed it</h1>
+		</div>			
+		<form action='/process' method="POST">
+			<input type="hidden" name="again" value="yes">
+			<input type="submit" name="again" value="Play again">
+		</form>		
+	{%endif%}
+</body>
+</html

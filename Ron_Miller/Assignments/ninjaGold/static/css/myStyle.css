@@ -1,0 +1,55 @@
+#score{
+	margin-bottom: 40px;
+}
+
+.box{
+	height: 160px;
+	width:200px;
+	background-color: blue;
+	display: inline-block;
+	vertical-align:top;
+	padding-top:40px;
+	text-align:center;
+	border-radius: 10px;
+	
+}
+
+input {
+	border-radius:5px;
+	color: black;
+	font-weight: bold;
+
+	text-align:center;
+
+}
+.build{
+	margin:0;
+	
+	
+}
+.points{
+	margin:0;
+	text-align:center;
+	margin-bottom: 20px;
+}
+#textbox{
+	margin-top:40px;
+	border: solid black 2px;
+	width:804px;
+	height:200px;
+	overflow:scroll;
+}
+
+#textbox textarea{
+	margin:0;
+	width:804px;
+	height:200px;
+	border: solid black 2px;
+	border-radius: 10px;
+}
+.green{
+	color:green;
+}
+.red{
+	color:red;
+}
