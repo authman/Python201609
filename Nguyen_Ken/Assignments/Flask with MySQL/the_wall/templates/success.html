@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>Login And Registration</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Login and Registration'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		<div id='successWrapper'>
+			<h1>Success!</h1>
+			{%if user%}
+				{%for user in user%}
+					<p class='success'>Your name is {{user['first_name']}} {{user['last_name']}} and your email is {{user['email']}} </p>
+				{%endfor%}
+			{%endif%}
+			<a href='/wall' id='button'>Continue To Your Wall</a>
+		</div><!-- successWrapper -->
+	</div><!-- wrapper -->
+</body>
+</html>
