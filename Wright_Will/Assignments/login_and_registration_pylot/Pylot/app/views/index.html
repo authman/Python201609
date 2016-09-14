@@ -11,16 +11,21 @@
             <form class="" action="/register" method="post">
                 <h2>Registration</h2>
                 <h4>First Name:</h4>
-                <input type="text" name="fname" value="">
+                <input type="text" name="fname" value="{{session['fname']}}">
                 <h4>Last Name:</h4>
-                <input type="text" name="lname" value="">
+                <input type="text" name="lname" value="{{session['lname']}}">
                 <h4>Email:</h4>
-                <input type="text" name="email" value="">
+                <input type="text" name="email" value="{{session['email']}}">
                 <h4>Password:</h4>
                 <input type="text" name="password" value="" autocomplete="off">
                 <h4>Confirm Password</h4>
                 <input type="text" name="conf_password" value="" autocomplete="off">
                 <input type="submit" name="login" value="Register">
+                {% with messages = get_flashed_messages(category_filter=["register"])  %}
+                    {%for message in messages%}
+                        <h5 class="errors">{{message}}</h5>
+                    {% endfor %}
+                {% endwith %}
             </form>
             <form class="" action="/login" method="post">
                 <h2>Login</h2>
@@ -29,6 +34,11 @@
                 <h4>Password:</h4>
                 <input type="text" name="password" value="" autocomplete="off">
                 <input type="submit" name="register" value="Login">
+                {% with messages = get_flashed_messages(category_filter=["login"])  %}
+                    {%for message in messages%}
+                        <h5 class="errors">{{message}}</h5>
+                    {% endfor %}
+                {% endwith %}
             </form>
         </div>
     </body>

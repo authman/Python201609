@@ -18,6 +18,7 @@ from system.core.router import routes
 """
 routes['default_controller'] = 'Login_Reg'
 routes['POST']['/login'] = 'Login_Reg#login'
+routes['POST']['/register'] = 'Login_Reg#register'
 routes['GET']['/success'] = 'Login_Reg#success'
 routes['POST']['/logout'] = 'Login_Reg#logout'
 """
