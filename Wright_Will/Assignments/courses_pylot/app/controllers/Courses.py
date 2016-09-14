@@ -1,6 +1,7 @@
 from system.core.controller import *
 from random import randint
 from time import strftime
+import re
 class Courses(Controller):
     def __init__(self, action):
         super(Courses, self).__init__(action)
@@ -12,6 +13,16 @@ class Courses(Controller):
         return self.load_view('index.html',data=data)
 
     def add(self):
+        session['name'] =request.form['course_name']
+        session['description'] =  request.form['course_description']
+        if len(session['name']) < 15:
+            flash("The Course Name must be at least 15 charachters")
+            return redirect("/")
+
+
+
+
+
         course = {"name":request.form['course_name'],"description":request.form['course_description']}
         self.models['Courses'].add_course(course)
         return redirect("/")
