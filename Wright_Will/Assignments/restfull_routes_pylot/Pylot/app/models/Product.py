@@ -18,8 +18,24 @@ class Product(Model):
 
         pass
     def update_product(self,info):
+        errors = []
+        if not len(info['name']) > 0:
+            errors.append('name must not be blank')
+        if not len(info['price']) > 0:
+            errors.append('price must not be blank')
+            if info['price'] < 0:
+                errors.append('price can not be negative')
+
+        if errors:
+            return {'status':False, 'errors':errors}
+
+        ####come back heer #######################
+        # need to add sql query to update product
+
+
+        sql = "UPDATE restfull_routes.product SET name=:name, description=:description, price=:price updated_at= NOW() WHERE id=:id;"
         pass
-    def delet_product(self,_id):
+    def delete_product(self,_id):
         pass
     """
     def add_message(self):
