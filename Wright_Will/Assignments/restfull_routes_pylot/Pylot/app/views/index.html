@@ -20,7 +20,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>put stuff here...</td>
+                  <td>{{name}}</td>
+                  <td>{{description}}</td>
+                  <td>{{price}}</td>
+                  <td>
+                        <a href="/products/show/{{_id}}">show</a>
+                        <a href="/products/edit/{{_id}}">edit</a>
+                        <form action="/products/destroy/{{_id}}" method="post">
+                            <input type="submit" name="name" value="Delete">
+                        </form>
+                  </td>
                 </tr>
               </tbody>
             </table>

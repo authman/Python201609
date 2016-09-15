@@ -12,14 +12,14 @@ class Products(Controller):
         return self.load_view('index.html')
 
     def new(self):
-        return redirect("/")
+        return self.load_view('new.html')
     def edit(self):
-            return redirect("/")
+            return self.load_view('edit.html')
     def show(self):
-            return redirect("/")
+            return self.load_view('show.html')
     def create(self):
-            return redirect("/")
+            return redirect("/products")
     def destroy(self):
-            return redirect("/")
+            return redirect("/products")
     def update(self):
-            return redirect("/")
+            return redirect("/products")
