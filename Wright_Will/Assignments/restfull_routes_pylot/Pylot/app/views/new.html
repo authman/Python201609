@@ -9,15 +9,24 @@
     <body>
         <div id="wrapper">
             <h2>Add a New Product </h2>
-            <form action="/products/create" class="" methods=["POST"]>
+            <form action="/products/create" class="" method="post">
                 <h4>Name</h4>
                 <input type="text" name="name" value="">
                 <h4>Description</h4>
-                <input type="text" name="name" value="">
+                <input type="text" name="description" value="">
                 <h4>Price</h4>
-                <input type="text" name="name" value="">
+                <input type="text" name="price" value="">
                 <input type="submit" name="name" value="Create">
             </form>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
 
             <a href="/products">Go Back</a>
         </div>

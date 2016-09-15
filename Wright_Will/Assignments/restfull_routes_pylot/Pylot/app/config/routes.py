@@ -7,7 +7,8 @@ routes['GET']['/products'] = 'Products#index'
 routes['GET']['/products/new'] = 'Products#new'
 routes['GET']['/products/edit/<_id>'] = 'Products#edit'
 routes['GET']['/products/show/<_id>'] = 'Products#show'
-routes['POST']['/products/create/<_id>'] = 'Products#create'
+
+routes['POST']['/products/create'] = 'Products#create'
 routes['POST']['/products/destroy/<_id>'] = 'Products#destroy'
 routes['POST']['/products/update/<_id>'] = 'Products#update'
 

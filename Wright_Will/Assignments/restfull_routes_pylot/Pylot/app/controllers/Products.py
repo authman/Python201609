@@ -14,16 +14,41 @@ class Products(Controller):
 
     def new(self):
         return self.load_view('new.html')
+
     def edit(self,_id):
         product = self.models['Product'].get_product(_id)
         return self.load_view('edit.html',product=product)
+
     def show(self,_id):
         product = self.models['Product'].get_product(_id)
         return self.load_view('show.html',product=product)
     def create(self):
+        new_product ={
+          "name": request.form['name'],
+          "description": request.form['description'],
+          "price": request.form['price']
+        }
+
+        self.models['Product'].add_product(new_product)
+
+
         return redirect("/products")
+
     def destroy(self,_id):
+        self.models['Product'].delete_product(_id)
         return redirect("/products")
-    def update(self):
-        
+
+    def update(self,_id):
+        print _id
+        info = {
+            'id':_id,
+            'name':request.form['name'],
+            'description':request.form['description'],
+            'price':request.form['price']
+        }
+        result = self.models['Product'].update_product(info)
+        if result['status']:
+            for error in result['errors']:
+                flash(error)
+            return redirect('/products/edit/'+_id)
         return redirect("/products")

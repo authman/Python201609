@@ -1,5 +1,6 @@
 
 from system.core.model import Model
+import re
 
 class Product(Model):
     def __init__(self):
@@ -15,38 +16,34 @@ class Product(Model):
         data = {'id': _id}
         return self.db.get_one(query, data)
     def add_product(self,info):
-
-        pass
+        errors =[]
+        errors = self.validate_product_info(info,errors)
+        if errors:
+            return {'status':True,'errors':errors}
+        sql = "INSERT into product (name, description, price) values(:name, :description, :price)"
+        _id = self.db.query_db(sql, info)
+        return {'status':False}
+    # ask autman how to pull this validation code out into one method...
     def update_product(self,info):
         errors = []
-        if not len(info['name']) > 0:
-            errors.append('name must not be blank')
-        if not len(info['price']) > 0:
-            errors.append('price must not be blank')
-            if info['price'] < 0:
-                errors.append('price can not be negative')
-
+        errors = self.validate_product_info(info,errors)
         if errors:
-            return {'status':False, 'errors':errors}
+            return {'status':True, 'errors':errors}
+        sql = "UPDATE restfull_routes.product SET name=:name, description=:description, price=:price, updated_at= NOW() WHERE id=:id;"
+        _id = self.db.query_db(sql, info)
+        return {'status': False, '_id':info['id']}
 
-        ####come back heer #######################
-        # need to add sql query to update product
-
-
-        sql = "UPDATE restfull_routes.product SET name=:name, description=:description, price=:price updated_at= NOW() WHERE id=:id;"
-        pass
     def delete_product(self,_id):
-        pass
-    """
-    def add_message(self):
-        sql = "INSERT into products (message, created_at, users_id) values(:message, NOW(), :users_id)"
-        data = {'message': 'awesome bro', 'users_id': 1}
-        self.db.query_db(sql, data)
-        return True
+        sql_data= {"id":_id}
+        sql = "DELETE FROM product WHERE id=:id;"
+        self.db.query_db(sql, sql_data)
+        return
 
-    def grab_messages(self):
-        query = "SELECT * from products where users_id = :user_id"
-        data = {'user_id':1}
-        return self.db.query_db(query, data)
-
-    """
+    def validate_product_info(self,info,errors):
+        if len(info['name']) == 0:
+            errors.append('name must not be blank')
+        if len(info['price']) == 0:
+            errors.append('price must be a valid number')
+        if info['price'] < 0:
+            errors.append('price can not be negative')
+        return errors
