@@ -19,17 +19,19 @@
                 </tr>
               </thead>
               <tbody>
+                  {% for product in product_data %}
                 <tr>
-                  <td>{{name}}</td>
-                  <td>{{description}}</td>
-                  <td>{{price}}</td>
+                  <td>{{product['name']}}</td>
+                  <td>{{product['description']}}</td>
+                  <td>{{product['price']}}</td>
                   <td>
-                        <a href="/products/show/{{_id}}">show</a>
-                        <a href="/products/edit/{{_id}}">edit</a>
-                        <form action="/products/destroy/{{_id}}" method="post">
+                        <a href="/products/show/{{product['id']}}">show</a>
+                        <a href="/products/edit/{{product['id']}}">edit</a>
+                        <form action="/products/destroy/{{product['id']}}" method="post">
                             <input type="submit" name="name" value="Delete">
                         </form>
                   </td>
+                  {% endfor %}
                 </tr>
               </tbody>
             </table>

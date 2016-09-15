@@ -11,11 +11,11 @@
             <h2>Edit Product {{_id}}</h2>
             <form action="/products/update/{{_id}}" class="" methods=["POST"]>
                 <h4>Name:</h4>
-                <input type="text" name="name" value="{{name}}">
+                <input type="text" name="name" value="{{product['name']}}">
                 <h4>Description:</h4>
-                <input type="text" name="name" value="{{description}}">
+                <input type="text" name="name" value="{{product['description']}}">
                 <h4>Price:</h4>
-                <input type="text" name="name" value="{{price}}">
+                <input type="text" name="name" value="{{product['price']}}">
                 <input type="submit" name="name" value="Update">
             </form>
 

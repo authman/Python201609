@@ -7,14 +7,15 @@ class Product(Model):
 
 
     def get_products(self):
-        query = "SELECT * from products"
+        query = "SELECT * from product"
         return self.db.query_db(query)
 
     def get_product(self,_id):
-        query = "SELECT * from products where id = :id"
+        query = "SELECT * from product where id = :id"
         data = {'id': _id}
         return self.db.get_one(query, data)
     def add_product(self,info):
+
         pass
     def update_product(self,info):
         pass

@@ -8,13 +8,13 @@
     </head>
     <body>
         <div id="wrapper">
-            <h2>Product {{_id}}</h2>
-            <h4>Name:</h4> {{name}}
-            <h4>Description:</h4>{{description}}
-            <h4>Price:</h4> {{price}}
+            <h2>Product {{product['id']}}</h2>
+            <h4><span class="bold">Name:</span> {{product['name']}}</h4>
+            <h4><span class="bold">Description:</span>  {{product['description']}}</h4>
+            <h4><span class="bold">Price:</span> {{product['price']}}</h4>
 
             <a href="/products/edit/{{_id}}">Edit</a>
-            <a href="/Products">Back</a>
+            <a href="/products">Back</a>
         </div>
     </body>
 </html>
