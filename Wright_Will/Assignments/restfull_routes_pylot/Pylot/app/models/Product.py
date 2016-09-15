@@ -4,28 +4,31 @@ from system.core.model import Model
 class Product(Model):
     def __init__(self):
         super(Product, self).__init__()
-    """
-    Below is an example of a model method that queries the database for all users in a fictitious application
 
-    Every model has access to the "self.db.query_db" method which allows you to interact with the database
 
-    def get_users(self):
-        query = "SELECT * from users"
+    def get_products(self):
+        query = "SELECT * from products"
         return self.db.query_db(query)
 
-    def get_user(self):
-        query = "SELECT * from users where id = :id"
-        data = {'id': 1}
+    def get_product(self,_id):
+        query = "SELECT * from products where id = :id"
+        data = {'id': _id}
         return self.db.get_one(query, data)
-
+    def add_product(self,info):
+        pass
+    def update_product(self,info):
+        pass
+    def delet_product(self,_id):
+        pass
+    """
     def add_message(self):
-        sql = "INSERT into messages (message, created_at, users_id) values(:message, NOW(), :users_id)"
+        sql = "INSERT into products (message, created_at, users_id) values(:message, NOW(), :users_id)"
         data = {'message': 'awesome bro', 'users_id': 1}
         self.db.query_db(sql, data)
         return True
 
     def grab_messages(self):
-        query = "SELECT * from messages where users_id = :user_id"
+        query = "SELECT * from products where users_id = :user_id"
         data = {'user_id':1}
         return self.db.query_db(query, data)
 
