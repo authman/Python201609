@@ -1,4 +1,4 @@
-from flask import Flask, render_template,session, request
+from flask import Flask, render_template, session, request
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'
 
@@ -8,7 +8,7 @@ def myfirstfunction():
         session['title'] = 'hello world'
     return render_template('index.html', name="Mike")
 
-@app.route('/do_something')
+@app.route('/do_something', methods=['POST'])
 def mysecondfunction():
     print request.form
     session['title'] = request.form['title']

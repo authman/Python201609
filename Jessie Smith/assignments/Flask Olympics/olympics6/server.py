@@ -1,11 +1,12 @@
 from flask import Flask, render_template, session, request, redirect
 import random
-
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'
 
 @app.route('/')
 def index():
+    if not 'count' in session:
+        session['count'] = 0
     if not 'gold' in session:
         session['gold'] = 0
     if not 'activities' in session:
@@ -20,16 +21,8 @@ def process():
         'cave':random.randint(0,30),
         'house':random.randint(0,5)
     }
-    if request.form['building'] in buildings:
-        """ OMG What???"""
-        result = buildings[request.form['building']]
-        session['gold'] = session['gold']+result
-        result_dictionary = {
-                                'class': ('red','green')[result > 0],
-                                'activity': "You went to the {} and {} {} gold!".format(request.form['building'], ('lost','gained')[result > 0], result)
-                            }
-        session['activities'].append(result_dictionary)
     return redirect('/')
+    
 
 
 if __name__ == '__main__':
@@ -37,5 +30,5 @@ if __name__ == '__main__':
 
 
 """
-Explain line 24 - 31.  Will it work?  How, where what? why!?
+Will this work?
 """

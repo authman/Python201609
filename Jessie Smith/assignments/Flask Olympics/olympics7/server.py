@@ -1,4 +1,6 @@
 from flask import Flask, render_template, session, request, redirect
+import random
+
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'
 
@@ -18,6 +20,8 @@ def process():
         'cave':random.randint(0,30),
         'house':random.randint(0,5)
     }
+    if request.form['building'] in buildings:
+        print buildings[request.form['building']]
     return redirect('/')
 
 
@@ -26,5 +30,8 @@ if __name__ == '__main__':
 
 
 """
-Will this work?
+Explain line 24!
+When the user clicks the farm button, 
+the value of farm prints to your terminal.
+Line 24 is how the information is gathered.
 """
