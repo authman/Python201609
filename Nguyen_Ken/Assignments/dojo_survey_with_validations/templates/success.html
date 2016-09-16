@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head lang='en'>
+	<meta charset='UTF-8'>
+	<title>Dojo Survey Success!</title>
+	<meta name='description' content='Dojo Survey Success!'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		<h1>Success! You are now a shinobi..</h1>
+		<h2>Submitted Info</h2>
+		<div id='submittedContent'>
+			<p>Name: {{session['name']}}</p>
+			<p>Dojo Location: {{session['location']}}</p>
+			<p>Favorite Language: {{session['language']}}</p>
+			<p>Comment: {{session['comment']}}</p>
+		</div><!--submittedContent-->
+		<span id='goBack'><a href='/'>Go Back</a></span>
+	</div><!-- wrapper-->
+</body>
+</html>

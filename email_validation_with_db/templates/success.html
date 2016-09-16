@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<title>Email Validation Success Page</title>
+	</head>
+	<body>
+		<h1>Thank you for entering a valid email address!</h1>
+		<h2>Email Addresses Entered:</h2>
+		{% for user in emails %}
+			<p>{{user['email']}} {{user['created_at']}}</p>
+		{% endfor %}
+	</body>

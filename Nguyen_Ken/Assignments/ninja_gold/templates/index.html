@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>Ninja Gold</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Ninja Gold'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		<div id='yourGold'>
+			<p>Your Gold: </p>
+			<p id='goldCount'>{{session['goldCount']}}</p>
+		</div><!-- your Gold -->
+
+		<div id='adventure'>
+			<div id='farm'>
+				<h2>Farm</h2>
+				<p>(earns 10-20 golds)</p>
+				<form action='/process_money' method='POST'>
+					<input type='hidden' name='action' value='farm'>
+					<input type='submit' name='farm' value='Find Gold!'>
+				</form>
+			</div><!-- farm -->
+
+			<div id='cave'>
+				<h2>Cave</h2>
+				<p>(earns 5-10 golds)</p>
+				<form action='/process_money' method='POST'>
+					<input type='hidden' name='action' value='cave'>
+					<input type='submit' name='cave' value='Find Gold!'>
+				</form>
+			</div><!-- cave -->
+
+			<div id='house'>
+				<h2>House</h2>
+				<p>(earns 2-5 golds)</p>
+				<form action='/process_money' method='POST'>
+					<input type='hidden' name='action' value='house'>
+					<input type='submit' name='house' value='Find Gold!'>
+				</form>
+			</div><!-- house -->
+
+			<div id='casino'>
+				<h2>Casino</h2>
+				<p>(earns/takes 0-50 golds)</p>
+				<form action='/process_money' method='POST'>
+					<input type='hidden' name='action' value='casino'>
+					<input type='submit' name='casino' value='Find Gold!'>
+				</form>
+			</div><!-- casino -->
+		</div><!-- adventure -->
+
+		<div id='activities'>
+			<p>Activities: </p>
+			<div id='displayActivity'>
+				{% for count in session['activities'] %}
+					<p>{{count|safe}}</p>
+				{% endfor %}
+
+			</div><!-- displayActivity -->
+		</div><!-- activities -->
+	</div><!-- wrapper -->
+</body>
+</html>

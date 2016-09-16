@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>Email Validation with DB Assignment</title>
+	</head>
+	<body>
+		<h1>Welcome! Please enter a valid email address below.</h1>
+		<br>
+		{% with messages = get_flashed_messages() %}
+    		{% if messages %}
+      			{% for message in messages %}
+        			<p>{{message}}</p>
+      			{% endfor %}
+    		{% endif %}
+  		{% endwith %}
+		<form action='/process' method='POST'>
+		Email Address:<input type='text' name='email'>
+		<input type='submit' value='Submit'>
+		</form>
+	</body>
+</html>
