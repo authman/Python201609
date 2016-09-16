@@ -15,6 +15,7 @@ class SLL(object):
     def add_To_Back(self,val):
         N = self.head
         while N.next != None:
+            print N.val
             N = N.next
         N.next = Node(val)
         return self
@@ -58,16 +59,16 @@ class SLL(object):
 
 
 sll = SLL()
-# sll.add_To_Front("a")
+sll.add_To_Front("a")
 # print mylist.head.val
 # print "_________"
-# sll.add_To_Front("b")
+sll.add_To_Front("b")
 # print mylist.head.val, mylist.head.next.val, mylist.head.next.next
 # print "_________"
 sll.add_To_Back("c")
 # print mylist.head.val, mylist.head.next.val, mylist.head.next.next.val
 # print "_________"
-sll.print_all()
+# sll.print_all()
 print
 
 
