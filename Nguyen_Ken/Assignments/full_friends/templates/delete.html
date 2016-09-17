@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>Full Friends Delete</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Ninja Gold'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		<h1>Are You Sure You Want To Delete Your Friend?</h1>
+
+		{% for friend in oneFriend %}
+		<p>ID: {{friend['id']}}</p>
+		<p>First Name: {{friend['first_name']}}</p>
+		<p>Last Name: {{friend['last_name']}}</p>
+		<p>Occupation: {{friend['occupation']}}</p>
+		{% endfor %}
+
+		<form action='/friends/{{friend_id}}/delete' method='POST'>
+			<input type='submit' value='Yes, Delete This Person'>
+		</form>
+
+	</div><!-- wrapper -->
+</body>
+</html>
