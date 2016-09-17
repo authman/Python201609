@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>Email Validation SUCCESS</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='Ninja Gold'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wrapper'>
+		{%with messages=get_flashed_messages(with_categories=true)%}
+			{%if messages%}
+				{%for condition, message in messages%}
+					<p class={{condition}}>{{message}}</p>
+				{%endfor%}
+			{%endif%}
+		{%endwith%}
+
+		<div id='emailEntered'>
+			<h2>Email Addresses Entered</h2>
+			<div id='emailEntries'>
+				{%for record in allRecords%}
+				<p>{{record['email']}} {{record['created_at']}}</p>
+				{% endfor %}
+			</div><!--email entries-->
+		</div><!--emailEntered-->
+	</div><!-- wrapper -->
+
+</body>
+</html>
