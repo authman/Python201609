@@ -1,5 +1,6 @@
 from flask import Flask, render_template,session
 app = Flask(__name__)
+app.secret_key="RememberSecretKey"
 
 @app.route('/')
 def myfirstfunction():
@@ -8,4 +9,5 @@ def myfirstfunction():
     return render_template('index.html', name="Mike")
 
 if __name__ == '__main__':
+  
   app.run(debug = True)
