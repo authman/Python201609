@@ -7,9 +7,14 @@ class posts(Controller):
         self.db = self._app.db
 
     def index(self):
+        posts = self.models['post'].all()
+        return self.load_view('index.html',posts=posts)
 
-        return self.load_view('index.html')
+    def posts_html(self):
+
+        return self.load_view('partials/posts.html')
 
     def create(self):
-
-        return redirect("/")
+        new_post = request.form['text']
+        self.models['post'].add(new_post)
+        return redirect('/')
