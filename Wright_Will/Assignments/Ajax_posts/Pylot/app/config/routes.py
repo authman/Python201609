@@ -3,6 +3,8 @@ from system.core.router import routes
 
 routes['default_controller'] = 'posts'
 routes['POST']['/posts/create'] = 'posts#create'
+routes['GET']['/posts/html'] = 'posts#posts_html'
+routes['POST']['/posts/destroy'] = 'posts#destroy'
 
 """
     You can add routes and specify their handlers as follows:

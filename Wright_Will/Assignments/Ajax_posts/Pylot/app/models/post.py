@@ -21,6 +21,6 @@ class post(Model):
         return _id
 
     def delete(self,_id):
-        query = "DELETE * from post where id = :id"
+        query = "DELETE FROM post WHERE id = :id;"
         data = {'id': _id}
         return self.db.query_db(query, data)

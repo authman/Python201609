@@ -6,3 +6,6 @@
     margin:10px;
     border: solid gray 1px;
 }
+.post p{
+    height: 80%;
+}

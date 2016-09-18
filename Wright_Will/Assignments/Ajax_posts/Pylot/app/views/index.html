@@ -3,29 +3,25 @@
     <head>
         <meta charset="utf-8">
         <title>My posts</title>
-        <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+        <script src="static/js/app.js" charset="utf-8"></script>
     </head>
     <body>
         <div id="wrapper">
+
             <h1>My Posts</h1>
-            <div class="all_da_posts">
-                {% for post in posts %}
-                    <div class="post">
-                        <p>
-                            {{post['text']}}
-                        </p>
-                    </div>
-                {% endfor %}
+
+            <div id="all_da_posts">
+
             </div>
-            <form action="/posts/create" method="post">
+
+            <form action="#" method="post" class="add_post">
                 <h4>Add a note:</h4>
                 <textarea name="text" rows="8" cols="40"></textarea>
                 <input type="submit" name="submit" value="Submit">
             </form>
-
-
-
 
         </div>
     </body>

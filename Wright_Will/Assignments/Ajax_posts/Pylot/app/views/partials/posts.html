@@ -1,9 +1,11 @@
-<div class="all_da_posts">
-    {% for post in posts %}
-        <div class="post">
-            <p>
-                {{post['text']}}
-            </p>
-        </div>
-    {% endfor %}
-</div>
+{% for post in posts %}
+    <div class="post">
+        <p>
+            {{post['text']}}
+        </p>
+        <form action="#" method="post" class="delete_post">
+            <input type="hidden" name="id" value="{{post['id']}}">
+            <input type="submit" name="name" value="Delete">
+        </form>
+    </div>
+{% endfor %}
