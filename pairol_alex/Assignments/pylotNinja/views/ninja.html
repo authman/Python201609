@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div class = 'container'>
+
+        <div id = 'gold'>
+            Your Gold <span>{{session['gold']}}</span>
+        </div>
+        <br>
+        <form action="/reset">
+            <input type="submit" value="reset">
+        </form>
+
+        <div id = 'actions'>
+
+            <form action="/process_money" method="post">
+                <input type="hidden" name="action" value="farm">
+                <p>Farm</p>
+                (earns 10 - 20 golds)
+                <input type="submit" value="Find Gold!!">
+            </form>
+
+            <form action="/process_money" method="post">
+                <input type="hidden" name="action" value="cave">
+                <p>Cave</p>
+                (earns 5 - 10 golds)
+                <input type="submit" value="Find Gold!!">
+            </form>
+
+            <form action="/process_money" method="post">
+                <input type="hidden" name="action" value="house">
+                <p>House</p>
+                (earns golds)
+                <input type="submit" value="Find Gold!!">
+            <span></span>
+            </form>
+
+            <form action="/process_money" method="post">
+                <input type="hidden" name="action" value="casino">
+                <p>Casino</p>
+                (earns golds)
+                <input type="submit" value="Find Gold!!">
+            </form>
+
+
+
+
+        </div>
+        activities
+        
+        <div id = 'activities'>
+
+            {% for activity in session['activities']%}
+            <span class="{{activity['status']}}"  >{{activity['action']}}</span><br>
+            {% endfor %}
+
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>
