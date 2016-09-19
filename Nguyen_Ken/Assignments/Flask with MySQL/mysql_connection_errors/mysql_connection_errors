@@ -1,0 +1,51 @@
+MySQL Connection Errors 
+
+1. 
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Ac
+cess denied for user 'poop'@'localhost' (using password: YES)")
+
+fix: make sure you supplied the correct user value to self.config.user
+
+
+2.
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Ac
+cess denied for user 'root'@'localhost' (using password: YES)")
+
+fix: make sure you supplied the correct password value to self.config.password
+
+3.
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Ac
+cess denied for user 'root'@'localhost' (using password: NO)")
+
+fix: make sure you supply a password, if one is required
+
+4.
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1049, "Un
+known database 'twitter7'")
+
+fix: make sure the value of your database name is correct in your server.py file
+
+5.
+sqlalchemy.exc.ProgrammingError: (_mysql_exceptions.ProgrammingError) (1146, "Ta
+ble 'twitter.pie' doesn't exist") [SQL: u'SELECT * FROM pie']
+
+fix: make sure you select from a correct table in your database
+
+6.
+ValueError: invalid literal for int() with base 10: 'abcd'
+
+fix: make sure your port is not a string, and that it matches the port your SQL server is running on
+
+7.
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2003, "Ca
+n't connect to MySQL server on '127.0.0.1' (10061)")
+
+fix: make sure the port value matches the port your SQL server is running on
+
+8.
+sqlalchemy.exc.ProgrammingError: (_mysql_exceptions.ProgrammingError) (1064, "Yo
+u have an error in your SQL syntax; check the manual that corresponds to your My
+SQL server version for the right syntax to use near 'PIE * FROM users' at line 1
+") [SQL: u'PIE * FROM users']
+
+fix: make sure you use the right query syntax such as SELECT, INSERT INTO, UPDATE, or DELETE

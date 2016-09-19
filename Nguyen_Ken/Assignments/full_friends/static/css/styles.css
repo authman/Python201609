@@ -1,0 +1,19 @@
+*{
+	margin: 0;
+	font-family: monospace;
+	font-size: 1.2em;
+}
+
+.wrapper {
+	width: 90%;
+	margin: 200px auto;
+}
+
+label {
+	display: block;
+	margin-top: 20px;
+}
+
+h1{
+	margin-bottom: 20px;
+}

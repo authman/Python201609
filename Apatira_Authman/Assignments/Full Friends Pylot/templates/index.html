@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>...</title>
+    <style>
+      label {display:block;}
+    </style>
+  </head>
+  <body>
+    <form action="/friends" method="POST">
+      <h1>Make(?) a Friend</h1>
+      <label>First Name: <input type="text" name="first_name" /></label>
+      <label>Last Name: <input type="text" name="last_name" /></label>
+      <label>Email: <input type="email" name="email" /></label>
+      <label><input type="submit" value="Create!" /></label>
+    </form>
+
+    <h1>My Friends.. :)</h1>
+    <ul>
+      {% for friend in friends %}
+        <li>
+          {{ friend['first_name'] }} {{ friend['last_name'] }} -- {{ friend['email'] }}
+          ({{ friend['created_at'] }})
+          <a href='/friends/{{ friend['id'] }}/edit'>EDIT</a>
+          <form method='POST' action='/friends/{{ friend['id'] }}/delete'>
+            <input type='submit' value='DELETE' />
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

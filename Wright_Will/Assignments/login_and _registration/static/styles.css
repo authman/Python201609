@@ -1,0 +1,33 @@
+.error{
+    color:red;
+    text-align: center;
+}
+.log_reg{
+    width:400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="text"]{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+input[type="submit"]{
+    display: block;
+    margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.lcol{
+    width:150px;
+    display:inline-block;
+    margin-top: 2px;
+    margin-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+.heading{
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head lang = 'en'>
+        <meta charset="utf-8">
+        <title>log in</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" >
+    </head>
+    <body>
+        <div id="wrapper">
+
+
+            <form class="log_reg" action="/login" method="post">
+                <h4>Log in Here</h4>
+                <input type="text" name="email" value="" placeholder="email">
+                <input type="text" name="password" value="" placeholder="password">
+                <input type="submit" name="name" value="Login">
+            </form>
+
+            <form class="log_reg" action="/register" method="post">
+                <h4>New User?</h4>
+                <input type="text" name="fname" value="" placeholder="first name">
+                <input type="text" name="lname" value="" placeholder="last name">
+                <input type="text" name="email" value="" placeholder="email">
+                <input type="text" name="password" value="" placeholder="password">
+                <input type="text" name="confirm_password" value="" placeholder="confirm password">
+                <input type="submit" name="name" value="Register">
+            </form>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+
+        </div>
+    </body>
+</html>
