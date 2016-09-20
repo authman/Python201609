@@ -1,0 +1,16 @@
+#wrapper{
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.all_da_notes{
+
+}
+.note{
+    height: 150px;
+    width: 150px;
+    border: solid grey 1px;
+    padding:5px;
+}
+#add *{
+    display: block;
+}
