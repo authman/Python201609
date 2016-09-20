@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Jonathan Ben-Ammi">
+	<title>title</title>
+	<meta name="description" content="">
+	<link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/materialize_icons.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script src="/static/js/jquery-2.2.3.js"></script>
+	<script src="/static/js/jquery-ui.js"></script>
+	<script src="/static/js/materialize.js"></script>
+	<script type="text/javascript" src="">
+		$(document).ready(function() {
+
+
+		})
+	</script>
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper blue-grey">
+		<a href="#" class="brand-logo light"><dfn>SurveyForm</dfn></a>
+
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="container row">
+		<div class="col s6 offset-s3">
+
+			<ul class="col s5">
+				<li class="labels">Name:</li>
+				<li class="labels">Dojo Location:</li>
+				<li class="labels">Favorite Language:</li>
+				<li class="labels">Comment:</li>
+			</ul>
+			<ul class="col s7">
+				<li>{{survey['name']}}</li>
+				<li>{{survey['location']}}</li>
+				<li>{{survey['language']}}</li>
+				<li></li>
+			</ul>
+
+			<div id="comment" class="col s12">
+				<p class="">{{survey['comment']}}</p>
+			</div>
+			<div class="row ">
+				<a href="/" class=""><button class="btn waves-effect waves-light blue-grey lighten-1 right margin-top">Return</button></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
