@@ -1,0 +1,15 @@
+* {
+  font-family: monaco;
+}
+#form{
+	margin-left:200px;
+}
+#prompt{
+	background-color:green;
+	width:500px;
+	height:50px;
+}
+label{
+	display:block;
+	color:black;
+}
