@@ -1,0 +1,48 @@
+* {
+  font-family: monaco;
+}
+
+#scoreBox{
+	margin-bottom: 40px;
+}
+
+.box{
+	height: 160px;
+	width:200px;
+	background-color: blue;
+	display: inline-block;
+	vertical-align:top;
+	padding-top:40px;
+	text-align:center;
+	border-radius: 10px;
+	
+}
+
+input {
+	border-radius:5px;
+	color: black;
+	font-weight: bold;
+
+	text-align:center;
+
+}
+.build{
+	margin:0;
+}
+
+.red{
+	color:red;
+
+
+}
+.green{
+	color:green;
+}
+
+#textbox{
+	border: solid black 2px;
+	overflow:auto;
+	margin-top:20px;
+	width:806px;
+	height:400px;
+}
