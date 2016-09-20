@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <p class={{category}}>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <H2>Email Addresses Entered:</H2>  
+  {% if emails %}
+    {% for email in emails %}
+      <p><div class=created>{{email.email_address}}</div>{{email.created_at}}</p>
+    {%endfor%}
+  {%endif%}
+</body>
+</html>

@@ -1,0 +1,21 @@
+.red{
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	border: solid 1px black;
+	width: 300px;
+}
+.green{
+	background-color: green;
+	border: solid 1px black;
+}
+.created{
+	width: 225px;
+	display: inline-block;	
+}
+H2{
+	text-decoration: underline;
+}
+p{
+	width: 380px;
+}
