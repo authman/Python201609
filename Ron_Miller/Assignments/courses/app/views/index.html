@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  	<body>
+   		<h1> Add a new course</h1>
+		{% with messages = get_flashed_messages()%}
+				{%if messages%}
+						{%for message in messages%}
+						<p>{{message}}</p>
+					{%endfor%}
+				{%endif%}
+			{%endwith %}
+    	<form action='/process'  method ="POST">
+    		<label>Course Name:</label>
+    		<input type="text" name="name" value=''>   	
+   	  		<label> Description: </label>
+  			<textarea name='comment'></textarea>
+  
+  			<input type="submit">
+	
+		</form>
+		<h1> Courses</h1>
+		<table>
+			<tr>
+				<th>Course Name</th>
+				<th>Description</th>
+				<th>Date Added</th>
+				<th>Actions</th>
+			</tr>
+			{%for course in classList%}
+			<tr>
+				<td>{{course['name']}}</td>
+				<td>{{course['description']}}</td>
+				<td>{{course['created_on']}}</td>
+				<td><a href="/confirmation/{{course['id']}}">Remove</a></td>	
+			</tr>
+			{%endfor%}
+		</table>
+
+  	</body>
+</html>
