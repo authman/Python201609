@@ -1,0 +1,8 @@
+* {
+  font-family: sans-serif;
+  display: block;
+}
+
+#info {
+	display: inline-block;
+}
