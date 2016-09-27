@@ -1,0 +1,39 @@
+<html>
+  <head>
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+  <div class='box'>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action='/users/register' method='post'>
+	<input type='hidden' name='action' value='register'>
+	<label>First Name</label>
+	<input type='text' name='fName'>
+	<label>Last Name</label>
+	<input type='text' name='lName'>
+	<label>E-mail</label>
+	<input type='email' name='email'>
+	<label>Password</label>
+	<input type='password' name='password'>
+	<label>Confirm Password</label>
+	<input type='password' name='pw_confirmation'>
+	<input type='submit' value='Register'>
+</form>
+
+<form action='/users/login' method='post'>
+	<input type='hidden' name='action' value='login'>
+	<label> E-mail</label>
+	<input type='email' name='email'>
+	<label> Password</label>
+	<input type='password' name='password'>
+	<input type='submit' value='Login'>
+</form>
+</div>	
+  </body>
+</html>
