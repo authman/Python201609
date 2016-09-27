@@ -1,0 +1,17 @@
+* {
+  font-family: sans-serif;
+}
+
+div {
+	border:solid black 2px;
+	display: inline-block;
+	height: 200px;
+	text-align: center;
+	margin: 20px;
+	width: 200px;
+}
+
+#casino{
+	position: relative;
+	top: 22px;
+}
