@@ -1,0 +1,18 @@
+#form{
+	background-color:blue;
+	width:33%;
+	padding:2%;
+	text-align:left;
+}
+form input{
+	width:60%;
+	margin:1%;
+
+}
+form select{
+	width:50%;
+	margin:1%;
+}
+label{
+	display:block;
+}
