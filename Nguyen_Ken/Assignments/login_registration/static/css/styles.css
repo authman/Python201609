@@ -1,0 +1,47 @@
+*{
+	margin: 0;
+	font-family: monospace;
+	font-size: 1em;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 200px auto;
+}
+
+.box{
+	display: inline-block;
+	border: 1.3px dashed blue;
+	vertical-align: top;
+	padding: 30px;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+#formDiv {
+	text-align: center;
+}
+
+#flash {
+	margin-bottom: 30px;
+}
+
+#successWrapper {
+	margin: 0 auto;
+	font-size: 1.4rem;
+}
+
+h1{
+	margin-bottom: 30px;
+}
