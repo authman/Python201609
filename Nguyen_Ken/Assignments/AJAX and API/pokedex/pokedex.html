@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokedex</title>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        //load pokemon
+        function getPokemon(){
+          var add_html = '';
+          for (var i=1; i<152; i++){
+            add_html += "<img alt='Pokemon #"+i+"' id='"+i+"' src='http://54.70.82.18/media/"+i+".png' >";
+          }
+          $('#pokemonDiv').append(add_html);
+        };
+
+        $(document).on('load', getPokemon());
+
+
+
+        //load pokedex
+        function loadPokedex(id){
+            var show_html = '';
+            var name= '';
+            var picture= "http://54.70.82.18/media/"+id+".png";
+            var types='';
+            var height='';
+            var weight='';
+
+            // <h1>pikachu</h1><img></img><p>types<ul><li></li><li></li></ul><p>height </p><p>weight</p>       to visualize
+
+            //ajax function here
+            $.get('http://pokeapi.co/api/v1/pokemon/'+id+'/', function(res){
+                name = res.name;
+                height = res.height;
+                weight = res.weight;
+
+                for (var i=0; i<res.types.length; i++){
+                  types += "<li>"+res.types[i]['name']+"</li>";
+                };
+
+                show_html = "<h1>"+name+"</h1><img src='"+picture+"' ><h4>Types</h4><ul>"+types+"</ul><h4>Height</h4><p>"+height+"</p><h4>Weight</h4><p>"+weight+"</p>"
+
+                //run function to dynamically change html from within this function, because show_html is stored within this scope.
+                return $('#pokedexDiv').html(show_html);
+
+              }, 'json');
+        };
+
+        //on click of image, run ajax function and show pokemon on pokedex
+        $('img').on('click', function(){
+          var pokeId = $(this).attr('id');
+          loadPokedex(pokeId);
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='pokemonDiv'>
+        <h1>Pokemon!</h1>
+      </div><!-- pokemon Div -->
+
+      <div id='pokedexDiv'>
+      </div><!-- pokedex div -->
+    </div><!-- wrapper -->
+  </body>
+</html>

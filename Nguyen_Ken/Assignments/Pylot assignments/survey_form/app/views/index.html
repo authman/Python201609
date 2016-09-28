@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='form'>
+        <form action='/Surveys/process' method='POST'>
+          <label for='name'>Your Name: <input type='text' id='name' name='name'></label>
+          <label for='location'>Dojo Location:
+            <select name='location' id='location'>
+              <option>Silicon Valley</option>
+              <option>Seattle</option>
+              <option>Los Angeles</option>
+              <option>Dallas</option>
+              <option>Washington, D.C.</option>
+              <option>Chicago</option>
+            </select>
+          </label>
+          <label for='language'>Favorite Language:
+            <select name='language' id='language'>
+              <option>C</option>
+              <option>C++</option>
+              <option>C#</option>
+              <option>Java</option>
+              <option>JavaScript</option>
+              <option>Python</option>
+              <option>Ruby</option>
+              <option>HTML</option>
+              <option>CSS</option>
+            </select>
+          </label>
+          <label for='comment'>Comment (optional):
+            <textarea id='comment' name='comment'></textarea>
+          </label>
+          <input type='submit' name='submit' id='submit' value='submit'>
+
+        </form>
+      </div><!-- form-->
+    </div><!-- wrapper -->
+  </body>
+</html>

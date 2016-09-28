@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='deleteCourse'>
+        <h2>Are you sure you want to delete the following course?</h2>
+        {%if course%}
+          {%for record in course %}
+          <p>Name: {{record['title']}}</p<
+          <p>Description: {{record['description']}}</p>
+          <a href='/'>No</a>
+          <a href='/courses/delete/{{record['id']}}'>Yes! I want to delete this</a>
+          {%endfor%}
+        {%endif%}
+      </div><!-- delete course -->
+
+    </div><!-- wrapper -->
+  </body>
+</html>

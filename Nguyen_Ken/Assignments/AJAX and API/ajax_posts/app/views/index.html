@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Posts</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('form').submit(function(){
+          $.post('/posts/create', $(this).serialize(), function(res){
+            $('.postsDiv').html(res);
+
+          });
+
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>My Posts</h1>
+      <div class='postsDiv'>
+        {%for post in posts%}
+        <div class='posts'><p>{{post['description']}}</p></div>
+        {%endfor%}
+      </div><!--postsDiv-->
+      <div class='form'>
+        <form action='/posts/create' method='POST'>
+          <label for='addNote'>Add a note: </label>
+          <textarea id='addNote' name='description'></textarea>
+          <input type='submit' value='Post It!'>
+        </form>
+      </div><!-- form -->
+    </div><!-- container -->
+  </body>
+</html>

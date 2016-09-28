@@ -1,0 +1,12 @@
+* {
+  font-family: monaco;
+}
+
+.error {
+  color: red;
+  list-style-type: none;
+}
+
+.success {
+  color: green;
+}

@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Edit Product {{product['id']}} | Semi Restful Routes</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <h1>Edit Product {{product['id']}}</h1>
+        {%with errors = get_flashed_messages(category_filter=['error'])%}
+          {%if errors%}
+          <ul>
+            {%for error in errors%}
+            <li class='error'>{{error}}</li>
+            {%endfor%}
+          </ul>
+          {%endif%}
+        {%endwith%}
+      <div class='formClass'>
+        <form action='/products/update/{{product['id']}}' method='POST'>
+          <label for='name'>
+            Name <input type='text' class='name' name='name'>
+          </label>
+          <label for='description'>
+            Description <input type='text' class='description' name='description'>
+          </label>
+          <label for='price'>
+            Price <input type='text' class='price' name='price'>
+          </label>
+          <input type='submit' value='Update'>
+        </form>
+        <a href='/products/show/{{product['id']}}'>Show</a>
+        <a href='/'>Back</a>
+      </div><!-- form class -->
+    </div><!-- wrapper -->
+  </body>
+</html>

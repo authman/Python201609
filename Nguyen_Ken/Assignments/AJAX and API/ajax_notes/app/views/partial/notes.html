@@ -1,0 +1,15 @@
+{%for note in notes%}
+  <div class='notes'>
+    <h3 class='noteTitle'>{{note['title']}}<h3>
+    <form action='/notes/delete/' method='POST'>
+      <input type='hidden' name='id' value="{{note['id']}}">
+      <input type='submit' value='Delete'>
+    </form>
+    <p>{{note['description']}}</p>
+    <form action='/notes/addDescription/' method='POST'>
+      <textarea name='description' placeholder="Enter a description here..."></textarea>
+      <input type='hidden' name='id' value="{{note['id']}}">
+      <!-- <input type='submit' value='Update'> -->
+    </form>
+  </div><!-- notes -->
+{%endfor%}

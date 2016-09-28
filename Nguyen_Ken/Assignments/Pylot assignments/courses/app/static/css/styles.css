@@ -1,0 +1,48 @@
+* {
+  font-family: monaco;
+}
+
+.error {
+  color: red;
+}
+
+span.courseName {
+  width: 200px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+span.courseDescription {
+  width: 100px;
+  height: 20px;
+  margin-right: 10px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+span.courseDate {
+  width: 200px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+span.courseActions {
+  width: 50px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+p.displayP {
+  height: 20px;
+  margin-bottom: 3px;
+}
