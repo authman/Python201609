@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<title>KenBook Wall</title>
+	<meta charset='UTF-8'>
+	<meta name='description' content='KenBook Wall'>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+	<div class='wallWrapper'>
+		{%if session['user']%}
+			{%for user in session['user']%}
+				<h1>Welcome {{user['first_name']}}</h1>
+				<a href='/logout' id='logout'>Log Out</a>
+			{%endfor%}
+		{%endif%}
+<!-- 			{%if user%}
+				{%for user in user%}
+					<p class='success'>Your name is {{user['first_name']}} {{user['last_name']}} and your email is {{user['email']}} </p>
+				{%endfor%}
+			{%endif%} -->
+
+
+		<div id='wallPostInput'>
+			<form action='/postToWall' method='POST'>
+				<h3>Post a message</h3>
+				<textarea name='wallPost' maxlength='255'></textarea>
+				<input type='submit' name='submit' id='submit'>
+			</form>
+		</div><!-- wall post input -->
+
+		<div class='wallMessages'>
+			<h2>Messages</h2>
+				{%if displayWall %}
+					{%for message in displayWall%}
+						{%if message['message']%}
+							<div class='messageDiv'>
+							{%if message['created_at']%}
+								<h4>{{message['first_name']}} ~ ~ ~ {{message['created_at'].strftime('%b %d, %Y')}}</h4>
+								<p>{{message['message']}}</p>
+							{%endif%}
+							</div><!-- messageDiv -->
+
+							<div class='commentDiv' >
+								{%if displayComment %}
+									{%for comment in displayComment%}
+										{%if comment['created_at']%}
+											{%if comment['message_id'] == message['messageID']%}
+												<h5>{{comment['commentPosterName']}} ~ ~ {{comment['created_at'].strftime('%b %d, %Y')}}</h5>
+												<p>{{comment['comment']}}</p>
+											{%endif%}<!-- match comment to the right message -->
+										{%endif%}<!-- if comment exists -->
+									{%endfor%}<!--displayComment-->
+								{%endif%}
+							</div><!-- commentDiv-->
+
+
+							<div class='addcomment'>
+								<form action='/postComment/{{message['messageID']}}' method='POST'>
+									<h3>Leave a comment:</h3>
+									<textarea name='comment' maxlength='255'></textarea>
+									<input type='submit' name='submit' id='commentSubmit'>
+								</form>
+							</div><!-- comment -->
+						{%endif%}<!-- if message exists-->
+					{%endfor%}<!-- displayWall -->
+				{%endif%}
+		</div><!-- wall Messages-->
+	</div><!-- wrapper -->
+</body>
+</html>

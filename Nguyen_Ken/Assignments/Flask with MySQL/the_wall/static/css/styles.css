@@ -1,0 +1,118 @@
+*{
+	margin: 0;
+	font-family: monospace;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 200px auto;
+}
+
+.box{
+	display: inline-block;
+	border: 1.3px outset orange;
+	width: 400px;
+	height: 300px;
+	vertical-align: top;
+	padding: 30px;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+
+#formDiv {
+	text-align: center;
+}
+
+#flash {
+	margin-bottom: 30px;
+}
+
+#successWrapper {
+	margin: 0 auto;
+	font-size: 1.4rem;
+}
+
+h1, h2{
+
+	color: orange;
+}
+
+h4, h5{
+	color: orange;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+.wallMessages {
+	text-align: center;
+}
+
+.wallWrapper {
+	text-align: center;
+	width: 80%;
+	margin: 200px auto;
+}
+
+#wallPostInput{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+}
+
+h2{
+	margin-bottom: 30px;
+	border-top: 2px dotted orange;
+	border-bottom: 2px dotted orange;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.commentDiv{
+	/*border: 1px dotted blue;*/
+}
+
+textarea {
+	width: 500px;
+	vertical-align: bottom;
+}
+
+.addcomment {
+	margin-bottom: 30px;
+}
+
+.messageDiv{
+	font-size: 1.4rem;
+	margin-bottom: 20px;
+}
+
+h3{
+	color: grey;
+}
+
+#logout {
+	text-decoration: none;
+}
+
+#button {
+	text-decoration: none;
+	width: 50px;
+	height: 30px;
+	color: blue;
+	background-color: grey;
+	border: 1px outset blue;
+}
