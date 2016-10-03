@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title>Leads</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        $.get('/loadLeads', function(res){
+          $('#tableBody').html(res);
+        }, 'HTML');
+
+        $(document).on('keyup', 'form', function(){
+          $.post('/search', $(this).serialize(), function(res){
+
+            $('#tableBody').html(res);
+          });
+        });
+
+        $(document).on('change', 'form', function(){
+          $.post('/search', $(this).serialize(), function(res){
+
+            $('#tableBody').html(res);
+          });
+
+        });
+
+        $('#fromDate').datepicker();
+        $('#toDate').datepicker();
+      });
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row' id='form'>
+        <div class='col-md-12'>
+          <form>
+            <div class='row'>
+              <div class='col-md-4 form-group'>
+                <label for='name'>Name: </label>
+                <input type='text' class='' name='name' id='name'>
+              </div>
+              <div class='col-md-4 form-group'>
+                <label for='fromDate'>From: </label>
+                <input type='text' class='' name='fromDate' id='fromDate'>
+              </div>
+              <div class='col-md-4 form-group'>
+                <label for='toDate'>To: </label>
+                <input type='text' class='' name='toDate' id='toDate'>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div><!-- row -->
+      <div class='row' id='pagination'>
+        <div clas='col-md-12'>
+        </div>
+      </div><!-- row -->
+      <div class='row' id='table'>
+        <div clas='col-md-12'>
+          <table class='table table-striped'>
+              <thead>
+                <tr>
+                  <th>leads_id</th>
+                  <th>first name</th>
+                  <th>last name</th>
+                  <th>registered datetime</th>
+                  <th>email</th>
+                </tr>
+              </thead>
+            <tbody id='tableBody'>
+            </tbody>
+          </table>
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+  </body>
+</html>
