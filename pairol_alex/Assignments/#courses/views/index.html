@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <form action = "create_course" method = "POST">
+        <input type = "text" name = "Title">
+        <input type = "text" name = "Description">
+        <input type = "hidden" name = "thisisHidden" value = "{{courses[0]['id']}}">
+        <input type = "submit" value = "new course">
+
+    </form>
+
+    <div>
+        {% for course in courses%}
+        {{course['Title']}}
+        </br>
+        {{course['Description']}}
+        <a href = "/destroy/{{course['id']}}"
+        <button>DEL</button></a>
+        {%endfor%}
+
+    </div
+  </body>
+</html>
