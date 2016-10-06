@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+	<title>Edit</title>
+</head>
+<body>
+	<h1>Edit Product {{chosen_product['id']}}</h1>
+	<form action="/products/update/{{chosen_product['id']}}" method="POST">
+		<p>Name:</p>
+		<input type="text" name="name" value="{{chosen_product['name']}}"> 
+		<p>Description:</p>
+		<input type="text" name="description" value="{{chosen_product['description']}}">
+		<p>Price:</p>
+		<input type="text"  name="price" value="{{chosen_product['price']}}">
+		<input type="submit" value="Update">
+	</form>
+	<p><a href="/products/show/{{chosen_product['id']}}">Show</a>  |  <a href="/products">Back</a>
+</body>
+</html>
+
