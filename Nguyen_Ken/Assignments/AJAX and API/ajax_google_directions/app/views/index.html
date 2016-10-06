@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Google Directions</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('form').on('submit', function(){
+          $.post($(this).attr('action'), $(this).serialize(), function(res){
+            var html_string = '';
+
+            if (res.routes[0].length !== 0){
+              var start = res.routes[0].legs[0].start_address;
+              var end = res.routes[0].legs[0].end_address;
+              html_string += '<h2>Directions from '+start+' to '+end+'</h2>';
+              for (var idx=0;idx<res.routes[0].legs[0].steps.length;idx++){
+                html_string += '<p>'+(idx+1)+'. '+res.routes[0].legs[0].steps[idx].html_instructions+' </p>';
+              };
+            }else {
+              html_string = 'Not Found!';
+            }
+
+            $('.directions').html(html_string);
+          }, 'json');
+          return false;
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>Need directions?</h1>
+      <div class='form'>
+        <form action='/directions' method='POST'>
+          <label for='from'>From: </label>
+          <input type='search' name='from' id='from'>
+          <label for='to'>To: </label>
+          <input type='search' name='to' id='to'>
+          <input type='submit' value='Search'>
+        </form>
+      </div><!-- form -->
+
+      <div class='directions'>
+      </div><!-- directions -->
+    </div><!-- container -->
+  </body>
+</html>
