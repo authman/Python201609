@@ -1,0 +1,11 @@
+* {
+  font-family: monaco;
+}
+.box{
+	width: 200px;
+}
+
+input{
+	width: 190px;
+	margin-bottom: 10px;
+}
