@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>restfull products</title>
+        <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>Edit Product {{product['id']}}</h2>
+            <form action="/products/update/{{product['id']}}" class="" method="post">
+                <h4>Name:</h4>
+                <input type="text" name="name" value="{{product['name']}}">
+                <h4>Description:</h4>
+                <input type="text" name="description" value="{{product['description']}}">
+                <h4>Price:</h4>
+                <input type="text" name="price" value="{{product['price']}}">
+                <input type="submit" name="update" value="Update">
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                      <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+            </form>
+
+            <a href="/products/show/{{product['id']}}">Show</a>
+            <a href="/products">Back</a>
+        </div>
+    </body>
+</html>

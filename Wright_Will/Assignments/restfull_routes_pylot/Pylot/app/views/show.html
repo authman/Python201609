@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>show product</title>
+        <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>Product {{product['id']}}</h2>
+            <h4><span class="bold">Name:</span> {{product['name']}}</h4>
+            <h4><span class="bold">Description:</span>  {{product['description']}}</h4>
+            <h4><span class="bold">Price:</span> {{product['price']}}</h4>
+
+            <a href="/products/edit/{{product['id']}}">Edit</a>
+            <a href="/products">Back</a>
+        </div>
+    </body>
+</html>
