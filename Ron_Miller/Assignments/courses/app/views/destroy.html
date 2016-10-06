@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  	<body>
+  			<h1> Are you sure you want to delete the following course?</h1>
+  			<h4>Name: {{getCourse['name']}}</h4>
+  			<h4>Description: {{getCourse['description']}}</h4>
+
+  			<form action="/">
+  				<input type="hidden" name="deleteCourse" value="no" />
+  				<input type="submit" value="No"/>
+			</form>
+
+  			<form action="/confirmation/del/{{getCourse['id']}}" method="post">
+  				<input type="hidden" name="deleteCourse" value="yes" />
+  				<input type="submit" value="Yes, I want to delete this"/>
+			</form>
+
+	</body>
+</html>
