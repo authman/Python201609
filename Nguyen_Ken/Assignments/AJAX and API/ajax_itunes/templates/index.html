@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>iTune's Video Preview</title>
+    <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='styles.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('form').on('submit', function(){
+
+
+
+          $.post($(this).attr('action'), $(this).serialize(), function(res){
+            var load_img = '<img src="{{url_for('static', filename='dancing-banana.gif')}}" >';
+
+            $('.video').html(load_img);
+            var html_string = '';
+            if (res.results.length !== 0){
+              html_string = '<video controls src="'+res.results[0].previewUrl+'" ></video>';
+            }else{
+              html_string = 'Not Found!';
+            }
+
+
+            $('.video').html(html_string);
+          }, 'json');
+
+
+
+
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='form'>
+      <h1>Enter an Artist: </h1>
+        <form action='/movie' method='POST'>
+          <label for='user_input'>Artist's Name: </label>
+          <input type='search' id='user_input' name='user_input'>
+          <input type='submit' value='Search'>
+        </form>
+      </div>
+      <div class='video'>
+      </div>
+    </div><!-- container-->
+  </body>
+</html>
