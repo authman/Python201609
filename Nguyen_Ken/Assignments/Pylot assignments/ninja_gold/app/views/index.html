@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='yourGold'>
+        <p>Your Gold: <span id='goldSpan'>{{session['gold']}}</span></p>
+      </div><!-- your gold -->
+      <div id='forms'>
+        <div class='buildingClass'>
+          <h3>Farm</h3>
+          <p>(earns 10-20 golds)</p>
+          <form action='/process_money' method='POST'>
+            <input type='hidden' name='building' value='farm'>
+            <input class='submit' type='submit' value='Find Gold!'>
+          </form>
+        </div><!--Farm-->
+
+        <div class='buildingClass'>
+          <h3>Cave</h3>
+          <p>(earns 5-10 golds)</p>
+          <form action='/process_money' method='POST'>
+            <input type='hidden' name='building' value='cave'>
+            <input class='submit' type='submit' value='Find Gold!'>
+          </form>
+        </div><!--Cave-->
+
+        <div class='buildingClass'>
+          <h3>House</h3>
+          <p>(earns 2-5 golds)</p>
+          <form action='/process_money' method='POST'>
+            <input type='hidden' name='building' value='house'>
+            <input class='submit' type='submit' value='Find Gold!'>
+          </form>
+        </div><!--House-->
+
+        <div class='buildingClass'>
+          <h3>Casino</h3>
+          <p>(earns/takes 0-50 golds)</p>
+          <form action='/process_money' method='POST'>
+            <input type='hidden' name='building' value='casino'>
+            <input class='submit' type='submit' value='Find Gold!'>
+          </form>
+        </div><!--Casino-->
+      </div><!--forms-->
+      <div id='activities'>
+        <h3>Activities: </h3>
+        <div id='activityDisplay'>
+          <!-- {{session['activities'] | safe}} -->
+          {%if sessionActivities%}
+            {%for i in range((sessionActivities|length)-1, -1, -1)%}
+                <p class={{sessionActivities[i][1]}}>{{sessionActivities[i][0]}}</p>
+            {%endfor%}
+          {%endif%}
+        </div><!--activityDisplay -->
+      </div><!-- activities -->
+    </div><!-- wrapper -->
+  </body>
+</html>

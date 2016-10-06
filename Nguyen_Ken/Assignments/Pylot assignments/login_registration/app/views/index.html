@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='registrationDiv'>
+        <h2>Registration</h2>
+          {%with errors = get_flashed_messages(category_filter=['error'])%}
+            {%if errors%}
+              <ul>
+                {%for message in errors%}
+                <li class='error'>{{message}}</li>
+                {%endfor%}
+              </ul>
+            {%endif%}
+          {%endwith%}
+        <form action='/users/registration' method='POST'>
+          <label for='first_name'>
+            First Name: <input type='text' id='first_name' name='first_name'>
+          </label>
+          <label for='last_name'>
+            Last Name: <input type='text' id='last_name' name='last_name'>
+          </label>
+          <label for='email'>
+            Email: <input type='text' id='email' name='email'>
+          </label>
+          <label for='password_registration'>
+            Password: <input type='password' id='password_registration' name='password'>
+          </label>
+          <label for='password_confirmation'>
+            Confirm PW: <input type='password' id='password_confirmation' name='password_confirmation'>
+          </label>
+          <input type='submit' value='Register'>
+        </form>
+      </div><!-- registration Div -->
+
+      <div id='loginDiv'>
+        <h2>Login</h2>
+        {%with messages = get_flashed_messages(category_filter=['error_login'])%}
+          {%if messages%}
+            <ul>
+            {%for message in messages%}
+              <li class='error'>{{message}}</li>
+            {%endfor%}
+            </ul>
+          {%endif%}
+        {%endwith%}
+        <form action='/users/login' method='POST'>
+          <label for='email'>
+            Email: <input type='text' id='email' name='email'>
+          </label>
+          <label for='password_login'>
+            Password: <input type='password' id='password_login' name='password'>
+          </label>
+          <input type='submit' value='Login'>
+        </form>
+      </div><!-- login div -->
+    </div><!-- wrapper -->
+  </body>
+</html>

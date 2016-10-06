@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+
+        function addPokemon(){
+          var add_html = "";
+          for (var i=1; i<152; i++){
+            add_html += "<img alt='Pokemon #" +i+ "' src='http://54.70.82.18/media/" +i+ ".png' >";
+          }
+          $('#pokemonDiv').html(add_html);
+        }
+
+        addPokemon();
+      });
+
+
+    </script>
+  </head>
+  <body>
+    <div class='wrapper'>
+      <h1>Pokemon</h1>
+      <div id='pokemonDiv'>
+      </div><!-- pokemon div -->
+    </div><!--wrapper-->
+  </body>
+</html>

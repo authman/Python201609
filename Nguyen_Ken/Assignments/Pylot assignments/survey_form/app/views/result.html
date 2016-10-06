@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='message'>
+        <p>Thanks for submitting this form! You have submitted this form {{session['count']}} time(s) now.</p>
+      </div><!--message-->
+      <div id='submittedInfo'>
+        <h2>Submitted Information</h2>
+        <p>Name: {{session['name']}}</p>
+        <p>Dojo Location: {{session['location']}}</p>
+        <p>Favorite Language: {{session['language']}}</p>
+        <p>Comment: {{session['comment']}}</p>
+        <a href='/' >Go Back</a>
+      </div><!-- submitted info -->
+    </div><!-- wrapper -->
+  </body>
+</html>

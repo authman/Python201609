@@ -1,0 +1,19 @@
+* {
+  font-family: monospace;
+}
+
+.postsDiv{
+  width: 800px;
+  height: auto;
+}
+
+.posts {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #2b95ff;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  vertical-align: top;
+
+}

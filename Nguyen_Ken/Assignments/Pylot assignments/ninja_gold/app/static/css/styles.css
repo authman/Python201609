@@ -1,0 +1,49 @@
+* {
+  font-family: monospace;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 30px auto;
+  /*border: 3px dashed black;*/
+}
+
+#goldSpan{
+
+}
+
+div#forms{
+  margin: 10px auto;
+  width: 80%;
+  /*border: 1px solid red;*/
+  padding-left: 120px;
+}
+
+div.buildingClass {
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  height: 160px;
+  margin: auto;
+  border: 3px solid green;
+}
+
+div#activityDisplay {
+  overflow-y:auto;
+  height: 300px;
+  padding: 5px 0px 10px 30px;
+  border: 2px dotted red;
+}
+
+.submit{
+  margin-top: 20px;
+}
+
+.green{
+  color: green;
+}
+
+.red{
+  color: red;
+}

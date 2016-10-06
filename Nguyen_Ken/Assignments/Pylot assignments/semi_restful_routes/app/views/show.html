@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Product {{product['id']}} Info | Semi Restful Routes</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <h1>Product {{product['id']}}</h1>
+      <p>Name: {{product['name']}}</p>
+      <p>Description: {{product['description']}}</p>
+      <p>Price: {{product['price']}}</p>
+      <a href='/products/edit/{{product['id']}}'>Edit</a>
+      <a href='/'>Back</a>
+    </div><!-- wrapper -->
+  </body>
+</html>

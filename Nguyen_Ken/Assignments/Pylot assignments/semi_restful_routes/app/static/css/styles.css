@@ -1,0 +1,48 @@
+* {
+  font-family: monaco;
+}
+
+.error {
+  color: red;
+}
+
+.tableName{
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.tableDescription{
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.tablePrice{
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.tableActions{
+  width: 300px;
+  text-align: center;
+}
+
+.show{
+  border-right: 1px solid black;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.edit{
+  border-right: 1px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.remove{
+  display: inline-block;
+  padding-left: 10px;
+}

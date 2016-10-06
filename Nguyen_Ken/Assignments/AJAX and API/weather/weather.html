@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <!-- <link rel='stylesheet' type='text/css' href='/styles.css'> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+
+        String.prototype.capitalizeFirstLetter = function(){
+          return this.charAt(0).toUpperCase()+this.slice(1);
+        };
+
+        $('form').submit(function(){
+
+          var city = $('#city').val().split(' ').join('+');
+          var url  = 'http://api.openweathermap.org/data/2.5/weather?q='
+          var ki   = '&APPID=c6e1cbe445ef9ca3140704b78b7a04a6'
+          console.log(url+city+ki);
+          $.get(url+city+ki, function(res){
+
+                var name = res['name'];
+                var weather = (res['weather'][0]['description']).capitalizeFirstLetter();
+                var temp = (res['main']['temp']*(9/5)-(459.67)).toFixed(1);
+                $('#cityName').text(name);
+                $('#weather').text(weather);
+                $('#temp').text(temp);
+
+
+          }, 'json');
+
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>Weather</h1>
+      <form>
+        <label for='city'>Enter a city: </label>
+        <input type='text' id='city' name='city'>
+        <input type='submit' value='Search Weather'>
+      </form>
+      <div class='displayWeather'>
+        <h1 id='cityName'></h1>
+        <p>Current Weather: <span id='weather'></span></p>
+        <p>Temperature: <span id='temp'></span>&#8457;</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Tasks</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+
+        //add task
+        $('#addTaskForm').on('submit', function(){
+          $.post('/tasks/add',$(this).serialize(),function(res){
+            $('.tasksDiv').html(res);
+          });
+
+          return false;
+        });
+
+        $('.tasksForm').on('submit', function(){
+          return false;
+        });
+        //needed this ^^^ to not submit the form
+
+        //edit task used .on() method for dynamic content
+        $(document).on('click','.edit_button',function(){
+          if ($(this).attr('state') == '0'){
+            $(this).next().next().next().css('display','none');
+            $(this).next().next().next().next().attr('type','text');
+            $(this).attr('state','1');
+          }
+          else if ($(this).attr('state') == '1'){
+              $.post('/tasks/edit',$(this).parent().serialize(),function(res){
+                $('.tasksDiv').html(res);
+              });
+          };
+        });
+
+        $(document).on('blur', '.name', function(){
+          $(this).prev().prev().prev().prev().attr('state','0');
+          $(this).prev().css('display','inline');
+          $(this).attr('type','hidden');
+        });
+
+        //localStorage to memorize checkboxes
+        var $checkboxes = $('.tasksDiv :checkbox');
+        var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+
+        $checkboxes.on('change', function(){
+          $checkboxes.each(function(){
+            checkboxValues[this.id] = this.checked;
+          });
+          localStorage.setItem('checkboxValues', JSON.stringify(checkboxValues));
+        });
+
+        // iterate over checkboxValues on page load to set value of boxes
+        $.each(checkboxValues, function(key, value){
+          $('#'+key).prop('checked', value);
+        }); //prop means to set that property 'checked' to true or false
+        // it works! localStorage
+
+
+
+        //disable checklist item
+        $(document).on('change','.checkbox', function(){
+          if ($(this).is(':checked')){
+            $(this).next().next().attr('disabled',true);
+          } else {
+            $(this).next().next().attr('disabled',false);
+          }
+
+        });
+
+
+
+
+      });
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>List of Tasks: </h1>
+      <div class='leftCol'>
+        <div class='tasksDiv'>
+          {%for task in tasks%}
+          <p>
+            <form class='tasksForm' action='' method='POST'>
+              <button value='Edit' class='edit_button' state='0'>Edit</button>
+              <input type='hidden' name='id' value="{{task['id']}}">
+              <input class='checkbox' id={{task['id']}} type='checkbox' name='done' >
+              <p class='taskName'>{{task['name']}}</p>
+              <input type='hidden'
+              class='name' name='name' value="{{task['name']}}">
+            </form>
+          </p>
+          {%endfor%}
+        </div><!-- tasksDiv -->
+      </div><!-- leftCol-->
+
+      <div class='rightCol'>
+        <form id='addTaskForm' action='/tasks/add' method='POST'>
+          <label for='addTask'>Create a New Task: </label>
+          <input type='text' name='name' id='addTask'>
+          <input type='submit' value='Add Task'>
+        </form>
+      </div><!-- rightCol -->
+    </div><!-- container -->
+  </body>
+</html>

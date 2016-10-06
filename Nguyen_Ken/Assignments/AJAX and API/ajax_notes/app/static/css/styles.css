@@ -1,0 +1,11 @@
+* {
+  font-family: monospace;
+}
+
+.notes {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  display: inline-block;
+  vertical-align: top;
+}

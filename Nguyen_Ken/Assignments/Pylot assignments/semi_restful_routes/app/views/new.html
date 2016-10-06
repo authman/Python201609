@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Add Products | Semi Restful Routes</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <h1>Add a new product</h1>
+        {%with errors = get_flashed_messages(category_filter=['error'])%}
+          {%if errors%}
+          <ul>
+            {%for error in errors%}
+            <li class='error'>{{error}}</li>
+            {%endfor%}
+          </ul>
+          {%endif%}
+        {%endwith%}
+      <div class='formClass'>
+        <form action='/products/create' method='POST'>
+          <label for='name'>
+            Name <input type='text' class='name' name='name'>
+          </label>
+          <label for='description'>
+            Description <input type='text' class='description' name='description'>
+          </label>
+          <label for='price'>
+            Price <input type='text' class='price' name='price'>
+          </label>
+          <input type='submit' value='Create'>
+        </form>
+      </div><!-- form class -->
+      <a href='/'>Go back</a>
+    </div><!--wrapper-->
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div id='addCourse'>
+        <h2>Add a new course</h2>
+        {%with messages = get_flashed_messages(with_categories = true)%}
+          {%if messages%}
+            {%for category,message in messages%}
+            <p class={{category}}>{{message}}</p>
+            {%endfor%}
+          {%endif%}
+        {%endwith%}
+        <form action='/courses/add' method='POST'>
+          <label for='name'>
+            Name: <input type='text' id='name' name='name'>
+          </label>
+          <label for='description'>
+            Description: <textarea name='description' id='description'></textarea>
+          </label>
+          <input type='submit' value='Add'>
+        </form>
+      </div><!-- add course -->
+      <div id='existingCourses'>
+        <h2>Courses</h2>
+        <div id='displayCourses'>
+          <p class='displayP'><span class='courseName'>Course Name</span><span class='courseDescription'>Description</span><span class='courseDate'>Date Added</span><span class='courseActions'>Actions</span></p>
+          {%if allCourses%}
+            {%for course in allCourses%}
+              <p class='displayP'><span class='courseName'>{{course['title']}}</span><span class='courseDescription'>{{course['description']}}</span><span class='courseDate'>{{course['created_at'].strftime('%b %d %Y %I:%M%p')}}</span><span class='courseActions'><a href='/courses/destroy/{{course['id']}}'>remove</a></span></p>
+            {%endfor%}
+          {%endif%}
+        </div><!-- display courses -->
+      </div><!-- exitising courses-->
+    </div><!-- wrapper -->
+  </body>
+</html>
