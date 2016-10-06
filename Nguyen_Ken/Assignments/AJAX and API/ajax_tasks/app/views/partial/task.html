@@ -1,0 +1,12 @@
+{%for task in tasks%}
+<p>
+  <form class='tasksForm'>
+    <button value='Edit' class='edit_button' state='0'>Edit</button>
+    <input type='hidden' name='id' value="{{task['id']}}">
+    <input class='checkbox' id='{{task['id']}}' type='checkbox' name='done' >
+    <p class='taskName'>{{task['name']}}</p>
+    <input type='hidden'
+    class='name' name='name' value="{{task['name']}}">
+  </form>
+</p>
+{%endfor%}

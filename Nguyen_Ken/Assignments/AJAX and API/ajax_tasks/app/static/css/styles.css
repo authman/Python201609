@@ -1,0 +1,16 @@
+* {
+  font-family: monospace;
+}
+
+div.leftCol, div.rightCol {
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.rightCol {
+  padding-top: 13px;
+}
+
+.taskName {
+  display: inline;
+}
