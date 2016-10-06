@@ -1,0 +1,13 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+</head>
+<body>
+	
+	<h1>Product {{chosen_product['id']}}</h1>
+	<p>Name: {{chosen_product['name']}}</p>
+	<p>Description: {{chosen_product['description']}}</p>
+	<p>Price: ${{chosen_product['price']}}</p>
+	
+	<p><a href='/products/edit/{{chosen_product['id']}}'>Edit</a>  |  <a href='/products'>Back</a></p>
+</body>
