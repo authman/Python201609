@@ -1,0 +1,32 @@
+* {
+  font-family: monaco;
+}
+
+
+form {
+    padding: 15px;
+    margin-top:25px;
+    margin-bottom:25px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid gray 1px;
+    width: 300px;
+}
+form input, h4{
+    display: inline-block;
+    margin:0;
+    width: 45%;
+}
+#wrapper form input[type="submit"]{
+    margin-top: 5px;
+    display: block;
+    margin-left: 0;
+    margin-left: 124px;
+}
+.center{
+    margin-left: auto;
+    margin-right:auto;
+}
+.errors{
+    color:red;
+}
