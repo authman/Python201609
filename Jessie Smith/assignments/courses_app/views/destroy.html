@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Destroy</title>
+</head>
+<body>
+	<h1>Are you sure you want to delete the following course?</h1>
+	<p>Name: {{course['title']}}</p>
+	<p>Description: {{course['description']}}</p>
+	<form action="/index" method="GET">
+		<input type="hidden" name="button" value="no">
+		<input type="submit" value="No">
+	</form>
+	<form action="/courses/delete/{{course['id']}}" method="GET">
+		<input type="hidden" name="button" value="yes">
+		<input type="submit" value="Yes! I want to delete this.">
+	</form>
+</body>
+</html>
